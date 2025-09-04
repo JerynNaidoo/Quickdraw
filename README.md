@@ -27,8 +27,8 @@ git lfs install
 
 Clone the repo
 
-git clone <repo-url>
-cd <project-folder>
+git clone repo-url
+cd project-folder
 git lfs pull
 
 
