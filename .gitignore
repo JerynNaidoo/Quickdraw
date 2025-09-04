@@ -466,4 +466,10 @@ FodyWeavers.xsd
 ### VisualStudio Patch ###
 # Additional files built by Visual Studio
 
+# --- Unity Package Manager fix ---
+# Ignore subfolders inside Packages but always keep manifest + lock
+/[Pp]ackages/*
+!/Packages/manifest.json
+!/Packages/packages-lock.json
+
 # End of https://www.toptal.com/developers/gitignore/api/unity,visualstudio
