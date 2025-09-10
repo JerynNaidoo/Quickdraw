@@ -1,4 +1,7 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+guid: d869b42e5d065f443bf29494218ab996
+=======
 guid: 476cc7d7cd9874016adc216baab94a0a
 timeCreated: 1484146680
 licenseType: Store
@@ -10,3 +13,4 @@ MonoImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+>>>>>>> 0f1218f0d97f0570c5a2b007abff2879624cf70b
