@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: rock3
-  m_Shader: {fileID: -6465566751694194690, guid: 675d20bc2368c494d92f43fac49355a3, type: 3}
-  m_Parent: {fileID: 2100000, guid: 98a56fc277bc85048980e6ea421c1ddd, type: 2}
+  m_Name: Sheriff
+  m_Shader: {fileID: -6465566751694194690, guid: 831b2acd724c940478128a54a56cbf0b, type: 3}
+  m_Parent: {fileID: 2100000, guid: f3d86150a5f77484b9fe43f59da68946, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -25,7 +25,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Texture2D:
-        m_Texture: {fileID: 2800000, guid: 78b2f6df4ff4d8d4cbc2526ed25e9049, type: 3}
+        m_Texture: {fileID: 2800000, guid: b9767a7a49fd2dd45991849e674b7183, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
@@ -33,7 +33,7 @@ Material:
     m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &185146858479244210
+--- !u!114 &3913401425792772532
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
