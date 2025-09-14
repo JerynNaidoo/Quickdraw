@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 5f;
 
     [Header("Look Settings")]
-    public float lookSensitivity = 2f;
+    public float lookSensitivity = 0.1f;
     public float maxLookX = 80f;  // up/down clamp
     public float minLookX = -80f;
 
