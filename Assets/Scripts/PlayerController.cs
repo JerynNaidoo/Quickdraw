@@ -10,6 +10,16 @@ public class PlayerController : MonoBehaviour
     [Header("Movement Settings")]
     public float speed = 5f;
 
+[Header("Look Settings")]
+    public float lookSensitivity = 0.1f;
+    public float maxLookX = 80f;  // up/down clamp
+    public float minLookX = -80f;
+
+    private float rotationX;
+    private float rotationY;
+
+    private Camera playerCamera;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
