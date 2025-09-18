@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: e4834eda789afe743a2250b8cce4cd15, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -157,7 +157,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 10000, y: 10000, z: 1000}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 829393277}
@@ -257,6 +257,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8387625055893212984, guid: 0f753b4ef51c3554fb2a73a55444f335, type: 3}
   m_PrefabInstance: {fileID: 7090706280369162206}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1285428427
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1285428429}
+  - component: {fileID: 1285428428}
+  m_Layer: 0
+  m_Name: DayNightController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1285428428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285428427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1b96746817bbc742afeb41a8e97c48e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skyMat: {fileID: 2100000, guid: e4834eda789afe743a2250b8cce4cd15, type: 2}
+  cycleLength: 120
+--- !u!4 &1285428429
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285428427}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1567360057 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8141897248204046723, guid: e0d25e46d4803024da1e6183ff47993c, type: 3}
@@ -275,6 +321,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 415668819}
     m_Modifications:
+    - target: {fileID: 3333197099324783466, guid: 54e174a3e0ea0684c8b344c33020f778, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3333197099324783466, guid: 54e174a3e0ea0684c8b344c33020f778, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3333197099324783466, guid: 54e174a3e0ea0684c8b344c33020f778, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 3333197099324783466, guid: 54e174a3e0ea0684c8b344c33020f778, type: 3}
       propertyPath: m_LocalPosition.x
       value: 297.5397
@@ -581,6 +639,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 415668819}
     m_Modifications:
     - target: {fileID: 6646493044035777296, guid: 07e03302785c9f04e87dfbea47d9af3a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646493044035777296, guid: 07e03302785c9f04e87dfbea47d9af3a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646493044035777296, guid: 07e03302785c9f04e87dfbea47d9af3a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646493044035777296, guid: 07e03302785c9f04e87dfbea47d9af3a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 297.57312
       objectReference: {fileID: 0}
@@ -708,7 +778,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4968877109909595, guid: d925c4ac66342564898fe693dbfceb73, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.07
+      value: 16.67
       objectReference: {fileID: 0}
     - target: {fileID: 4968877109909595, guid: d925c4ac66342564898fe693dbfceb73, type: 3}
       propertyPath: m_LocalPosition.z
@@ -943,3 +1013,4 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 415668819}
+  - {fileID: 1285428429}
