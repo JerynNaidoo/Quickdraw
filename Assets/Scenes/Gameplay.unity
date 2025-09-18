@@ -611,9 +611,9 @@ MonoBehaviour:
   pistol: {fileID: 1197674244}
   playerCam: {fileID: 330585545}
   fireAction: {fileID: 1120369429361536294, guid: d0effc846784b8a4babb607520eaa3e3, type: 3}
-  damage: 10
+  damage: 40
   range: 100
-  fireRate: 0.25
+  fireRate: 0.333
 --- !u!4 &2146603828
 Transform:
   m_ObjectHideFlags: 0
@@ -680,6 +680,14 @@ PrefabInstance:
     - target: {fileID: 4614680158073902546, guid: 79baf5d2821680245b59f09ab3261160, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6624746190478272988, guid: 79baf5d2821680245b59f09ab3261160, type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 6624746190478272988, guid: 79baf5d2821680245b59f09ab3261160, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7201036736877933624, guid: 79baf5d2821680245b59f09ab3261160, type: 3}
       propertyPath: m_Camera
