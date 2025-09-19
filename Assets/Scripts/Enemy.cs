@@ -1,35 +1,54 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-
-
 public class Enemy : MonoBehaviour
 {
     [Header("References")]
     public Transform player;
     private NavMeshAgent agent;
-    private Rigidbody rb;
+
+    [Header("Ragdoll Settings")]
+    public GameObject enemyBody; // Assign the EnemyBody child object in Inspector
+    private Rigidbody enemyBodyRb;
+    private Collider enemyBodyCollider;
 
     [Header("Stats")]
     private float currentHealth = 100f;
 
     [Header("Death Settings")]
-    public float despawnTime = 2f; // time after death before enemy is removed
+    public float despawnTime = 2f;
     private bool isDead = false;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Awake()
     {
+        player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
-        rb = GetComponent<Rigidbody>();
-        rb.isKinematic = true;   // NavMeshAgent drives movement
-        rb.useGravity = false;   // no physics gravity while alive
-        rb.constraints = RigidbodyConstraints.FreezeAll; // completely locked
 
+        if (enemyBody != null)
+        {
+            enemyBodyRb = enemyBody.GetComponent<Rigidbody>();
+            enemyBodyCollider = enemyBody.GetComponent<Collider>();
+
+            if (enemyBodyRb != null)
+            {
+                // Keep Rigidbody active for collisions with world
+                enemyBodyRb.isKinematic = false;
+                enemyBodyRb.useGravity = true;
+
+                // Prevent falling over while alive
+                enemyBodyRb.constraints = RigidbodyConstraints.FreezeRotationX |
+                                          RigidbodyConstraints.FreezeRotationZ;
+            }
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
+    {
+        if (!isDead)
+            ChasePlayer();
+    }
+
+    private void ChasePlayer()
     {
         if (player != null && agent != null && agent.enabled && agent.isOnNavMesh)
         {
@@ -42,7 +61,7 @@ public class Enemy : MonoBehaviour
         if (!isDead)
         {
             currentHealth -= amount;
-            Debug.Log(gameObject.name + " took " +amount +"damage. Remaining HP: " + currentHealth);
+            Debug.Log(gameObject.name + " took " + amount + " damage. Remaining HP: " + currentHealth);
 
             if (currentHealth <= 0f)
             {
@@ -55,19 +74,22 @@ public class Enemy : MonoBehaviour
     {
         isDead = true;
         agent.enabled = false; // stop NavMesh movement
-        rb.freezeRotation = false; // allow ragdoll-like physics
-        rb.isKinematic = false;
-        rb.useGravity = true;
-        rb.constraints = RigidbodyConstraints.None; // free ragdoll physics
 
-        // add force to make it fall dramatically
-        rb.AddForce(Vector3.back * 5f, ForceMode.Impulse);
+        if (enemyBodyRb != null)
+        {
+            // Release rigidbody so ragdoll works
+            enemyBodyRb.constraints = RigidbodyConstraints.None;
+            enemyBodyRb.useGravity = true;
 
-        // Tell spawner this enemy is gone
-        EnemySpawner spawner = Object.FindFirstObjectByType<EnemySpawner>(); ;
-        if (spawner != null) 
+            // Knockback force
+            enemyBodyRb.AddForce(-transform.forward * 5f + Vector3.up * 2f, ForceMode.Impulse);
+        }
+
+        EnemySpawner spawner = Object.FindFirstObjectByType<EnemySpawner>();
+        if (spawner != null)
             spawner.EnemyDied();
-        Debug.Log("Agent enabled: " + agent.enabled + " | isOnNavMesh: " + agent.isOnNavMesh);
+
         Destroy(gameObject, despawnTime);
     }
 }
+
