@@ -17,7 +17,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3008049471235794871
 Transform:
@@ -125,7 +125,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8511185297617016152
 Transform:
@@ -233,7 +233,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5722093030838055950
 Transform:
@@ -341,7 +341,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &68818611494585055
 Transform:
@@ -449,7 +449,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4504475732780546128
 Transform:
@@ -557,7 +557,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4213165542291294384
 Transform:
@@ -662,7 +662,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1287093903186485757
 Transform:
@@ -721,9 +721,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1287093903186485757}
     m_Modifications:
+    - target: {fileID: 2399757024317222674, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_Name
       value: Dynamite (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265823937115241262, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8240836149753301329, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -783,9 +795,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1287093903186485757}
     m_Modifications:
+    - target: {fileID: 2399757024317222674, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_Name
       value: Dynamite (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265823937115241262, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8240836149753301329, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -845,9 +869,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1287093903186485757}
     m_Modifications:
+    - target: {fileID: 2399757024317222674, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_Name
       value: Dynamite (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265823937115241262, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8240836149753301329, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -907,9 +943,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1287093903186485757}
     m_Modifications:
+    - target: {fileID: 2399757024317222674, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_Name
       value: Dynamite (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265823937115241262, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8240836149753301329, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -969,9 +1017,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1287093903186485757}
     m_Modifications:
+    - target: {fileID: 2399757024317222674, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_Name
       value: Dynamite (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265823937115241262, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8240836149753301329, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1031,9 +1091,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1287093903186485757}
     m_Modifications:
+    - target: {fileID: 2399757024317222674, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_Name
       value: Dynamite (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265823937115241262, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8240836149753301329, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1093,9 +1165,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1287093903186485757}
     m_Modifications:
+    - target: {fileID: 2399757024317222674, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_Name
       value: Dynamite (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265823937115241262, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8240836149753301329, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1155,9 +1239,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1287093903186485757}
     m_Modifications:
+    - target: {fileID: 2399757024317222674, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_Name
       value: Dynamite (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265823937115241262, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8240836149753301329, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1217,9 +1313,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1287093903186485757}
     m_Modifications:
+    - target: {fileID: 2399757024317222674, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_Name
       value: Dynamite (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265823937115241262, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8240836149753301329, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1279,9 +1387,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1287093903186485757}
     m_Modifications:
+    - target: {fileID: 2399757024317222674, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_Name
       value: Dynamite (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265823937115241262, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8240836149753301329, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1341,9 +1461,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1287093903186485757}
     m_Modifications:
+    - target: {fileID: 2399757024317222674, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_Name
       value: Dynamite (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265823937115241262, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8240836149753301329, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1403,9 +1535,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1287093903186485757}
     m_Modifications:
+    - target: {fileID: 2399757024317222674, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_Name
       value: Dynamite (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265823937115241262, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8240836149753301329, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1477,9 +1621,21 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -1.171
       objectReference: {fileID: 0}
+    - target: {fileID: 2399757024317222674, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_Name
       value: Dynamite (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265823937115241262, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8240836149753301329, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1539,9 +1695,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1287093903186485757}
     m_Modifications:
+    - target: {fileID: 2399757024317222674, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_Name
       value: Dynamite (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265823937115241262, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8240836149753301329, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1601,9 +1769,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1287093903186485757}
     m_Modifications:
+    - target: {fileID: 2399757024317222674, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_Name
       value: Dynamite (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265823937115241262, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8240836149753301329, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1663,9 +1843,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1287093903186485757}
     m_Modifications:
+    - target: {fileID: 2399757024317222674, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_Name
       value: Dynamite (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265823937115241262, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8240836149753301329, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1725,9 +1917,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1287093903186485757}
     m_Modifications:
+    - target: {fileID: 2399757024317222674, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_Name
       value: Dynamite (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265823937115241262, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8240836149753301329, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1787,9 +1991,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1287093903186485757}
     m_Modifications:
+    - target: {fileID: 2399757024317222674, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_Name
       value: Dynamite (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265823937115241262, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8240836149753301329, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1849,9 +2065,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1287093903186485757}
     m_Modifications:
+    - target: {fileID: 2399757024317222674, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_Name
       value: Dynamite (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265823937115241262, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8240836149753301329, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1911,9 +2139,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1287093903186485757}
     m_Modifications:
+    - target: {fileID: 2399757024317222674, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_Name
       value: Dynamite (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265823937115241262, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8240836149753301329, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1973,9 +2213,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1287093903186485757}
     m_Modifications:
+    - target: {fileID: 2399757024317222674, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_Name
       value: Dynamite (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265823937115241262, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8240836149753301329, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2035,9 +2287,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1287093903186485757}
     m_Modifications:
+    - target: {fileID: 2399757024317222674, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_Name
       value: Dynamite (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265823937115241262, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8240836149753301329, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2097,9 +2361,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1287093903186485757}
     m_Modifications:
+    - target: {fileID: 2399757024317222674, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_Name
       value: Dynamite (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265823937115241262, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8240836149753301329, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2159,9 +2435,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1287093903186485757}
     m_Modifications:
+    - target: {fileID: 2399757024317222674, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_Name
       value: Dynamite (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265823937115241262, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8240836149753301329, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2221,9 +2509,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1287093903186485757}
     m_Modifications:
+    - target: {fileID: 2399757024317222674, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_Name
       value: Dynamite (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265823937115241262, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8240836149753301329, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2283,9 +2583,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1287093903186485757}
     m_Modifications:
+    - target: {fileID: 2399757024317222674, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_Name
       value: Dynamite (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265823937115241262, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8240836149753301329, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2345,9 +2657,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1287093903186485757}
     m_Modifications:
+    - target: {fileID: 2399757024317222674, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_Name
       value: Dynamite (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265823937115241262, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8240836149753301329, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2407,9 +2731,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1287093903186485757}
     m_Modifications:
+    - target: {fileID: 2399757024317222674, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_Name
       value: Dynamite (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056876878510537022, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265823937115241262, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8240836149753301329, guid: 80bb5dba78d446d4ab79c5f5c03badcc, type: 3}
       propertyPath: m_LocalPosition.x
