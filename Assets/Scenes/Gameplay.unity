@@ -901,11 +901,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5081997192314181058, guid: 79baf5d2821680245b59f09ab3261160, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5292681294576630755, guid: 79baf5d2821680245b59f09ab3261160, type: 3}
       propertyPath: speed
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6624746190478272988, guid: 79baf5d2821680245b59f09ab3261160, type: 3}
+      propertyPath: m_Mass
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6624746190478272988, guid: 79baf5d2821680245b59f09ab3261160, type: 3}
       propertyPath: m_Constraints
@@ -917,15 +921,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6624746190478272988, guid: 79baf5d2821680245b59f09ab3261160, type: 3}
       propertyPath: m_IsKinematic
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7201036736877933624, guid: 79baf5d2821680245b59f09ab3261160, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 330585545}
-    m_RemovedComponents:
-    - {fileID: 5081997192314181058, guid: 79baf5d2821680245b59f09ab3261160, type: 3}
-    - {fileID: 6624746190478272988, guid: 79baf5d2821680245b59f09ab3261160, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
