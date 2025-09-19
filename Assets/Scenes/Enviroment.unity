@@ -344,7 +344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skyMat: {fileID: 2100000, guid: e4834eda789afe743a2250b8cce4cd15, type: 2}
-  cycleLength: 120
+  cycleLength: 10
 --- !u!4 &1285428429
 Transform:
   m_ObjectHideFlags: 0

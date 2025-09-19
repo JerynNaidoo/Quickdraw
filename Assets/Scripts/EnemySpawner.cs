@@ -53,7 +53,11 @@ public class EnemySpawner : MonoBehaviour
         NavMeshAgent agent = enemy.GetComponent<NavMeshAgent>();
         if (agent != null)
         {
-            agent.Warp(enemy.transform.position); // snaps agent to nearest point on NavMesh
+            NavMeshHit hit;
+            if (NavMesh.SamplePosition(spawnPoint.position, out hit, 2f, NavMesh.AllAreas))
+            {
+                agent.Warp(hit.position);
+            }
         }
 
         currentEnemies++;
