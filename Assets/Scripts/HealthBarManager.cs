@@ -8,7 +8,7 @@ public class HealthBarManager : MonoBehaviour
     [Header("References")]
     [SerializeField] private GameObject barPrefab;
     [SerializeField] private int maxBars = 10;
-
+    public GameOverManager gameOverManager;
     [Header("Colors")]
     [SerializeField] private Color fullColor = new Color(0.11f, 0.73f, 0.28f); // Green
     [SerializeField] private Color midColor = Color.yellow;                     // Yellow
@@ -105,7 +105,7 @@ public class HealthBarManager : MonoBehaviour
             StopCoroutine("AnimateBar");
             StartCoroutine(AnimateBar(barImages[i], targetColor));
         }
-        if (currentBars <= 0) Debug.Log("YOU DIED");
+        
     }
 
     public void AddOne()
@@ -117,9 +117,16 @@ public class HealthBarManager : MonoBehaviour
 
     public void RemoveOne()
     {
-        if (currentBars <= 0) return;
+        //if (currentBars <= 0) return;
         currentBars--;
         UpdateBarsVisual();
+
+        if (currentBars <= 0)
+        {
+            Debug.Log("YOU DIED");
+            if (gameOverManager != null)
+                gameOverManager.Show();
+        }
     }
 
     public void SetBars(int count)
@@ -129,4 +136,13 @@ public class HealthBarManager : MonoBehaviour
     }
 
     public int GetCurrentBars() => currentBars;
+
+    public void ResetHealth()
+    {
+        currentBars = maxBars;
+        UpdateBarsVisualInstant();  
+    }
+
+
+
 }
