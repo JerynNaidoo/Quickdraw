@@ -149,7 +149,7 @@ Animator:
   m_GameObject: {fileID: 213413028168530769}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: ff9ca29d59e99be4f98f40d933d4a5f5, type: 3}
-  m_Controller: {fileID: 9100000, guid: eaa4d99f68846184dbe7e1e15d983a87, type: 2}
+  m_Controller: {fileID: 9100000, guid: 689237f2b1d2bbe4896a975f64dd3428, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -172,8 +172,7 @@ GameObject:
   - component: {fileID: 4713240615886898923}
   - component: {fileID: 6460842116411025699}
   - component: {fileID: 5182325067678652816}
-  - component: {fileID: 4946509938582185716}
-  - component: {fileID: 4325983882027308998}
+  - component: {fileID: 322212883734952678}
   m_Layer: 0
   m_Name: Modelled Enemy
   m_TagString: Untagged
@@ -246,29 +245,7 @@ NavMeshAgent:
   m_BaseOffset: -1.75
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!95 &4946509938582185716
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1552522038857799548}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: ff9ca29d59e99be4f98f40d933d4a5f5, type: 3}
-  m_Controller: {fileID: 9100000, guid: 2dc910b7813ab2b4b8b85235fef3093b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4325983882027308998
+--- !u!114 &322212883734952678
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -277,9 +254,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1552522038857799548}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad160f7b88b21da4ab1978c2f0ec3b36, type: 3}
+  m_Script: {fileID: 11500000, guid: f7d75402bf3aa754a8037c90dd730301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1765798523753042638, guid: 79baf5d2821680245b59f09ab3261160, type: 3}
+  player: {fileID: 0}
   enemyBody: {fileID: 0}
   despawnTime: 2
