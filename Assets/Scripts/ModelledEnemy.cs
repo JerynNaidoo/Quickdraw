@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : MonoBehaviour
+public class ModelledEnemy : MonoBehaviour
 {
     [Header("References")]
     public Transform player;
@@ -18,9 +18,6 @@ public class Enemy : MonoBehaviour
     [Header("Death Settings")]
     public float despawnTime = 2f;
     private bool isDead = false;
-    [SerializeField] private float damageCooldown = 1.0f;
-    private float lastDamageTime;
-
 
     private void Awake()
     {
@@ -43,6 +40,11 @@ public class Enemy : MonoBehaviour
                                           RigidbodyConstraints.FreezeRotationZ;
             }
         }
+    }
+
+    void Start()
+    {
+        GetComponent<Animator>().Play("Running");
     }
 
     private void Update()
@@ -94,17 +96,4 @@ public class Enemy : MonoBehaviour
 
         Destroy(gameObject, despawnTime);
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        // check if we hit the player
-        if (other.CompareTag("Player") && Time.time - lastDamageTime > damageCooldown)
-        {
-            HealthBarManager health = FindFirstObjectByType<HealthBarManager>();
-            if (health != null) health.RemoveOne();
-            lastDamageTime = Time.time;
-        }
-
-    }
 }
-
