@@ -1063,6 +1063,7 @@ MonoBehaviour:
   pistolFire: {fileID: 1913832789}
   pistol: {fileID: 1197674244}
   playerCam: {fileID: 330585545}
+  revolver: {fileID: 2146603829}
   fireAction: {fileID: 1120369429361536294, guid: d0effc846784b8a4babb607520eaa3e3, type: 3}
   damage: 60
   range: 100
@@ -1091,11 +1092,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2146603826}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d87ab2462d354bf44b4ceb43a63fa88f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f18cc32bed51864ab271a6a34e807c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxAmmo: 6
-  currentAmmo: 6
+  currentAmmo: 0
   reserveAmmo: 30
   ammoText: {fileID: 1308486197}
 --- !u!1001 &1589521252770669628
