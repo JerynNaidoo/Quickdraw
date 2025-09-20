@@ -12,10 +12,9 @@ GameObject:
   - component: {fileID: 5088733362155752953}
   - component: {fileID: 7636237807246101705}
   - component: {fileID: 8169910671243745128}
-  - component: {fileID: 980870729090890821}
   - component: {fileID: 6268044420849847010}
   m_Layer: 0
-  m_Name: EnemyBody
+  m_Name: ModelledEnemyBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 213413028168530769}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.79, z: 0.13}
+  m_LocalPosition: {x: 0, y: 0, z: 0.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -112,33 +111,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &980870729090890821
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 213413028168530769}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &6268044420849847010
 Animator:
   serializedVersion: 7
@@ -170,12 +142,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4713240615886898923}
-  - component: {fileID: 6460842116411025699}
   - component: {fileID: 5182325067678652816}
   - component: {fileID: 4946509938582185716}
   - component: {fileID: 4325983882027308998}
   - component: {fileID: -793947152199362332}
   - component: {fileID: -1432841353179193420}
+  - component: {fileID: 1608829759575469418}
   m_Layer: 0
   m_Name: Modelled Enemy
   m_TagString: Untagged
@@ -192,40 +164,13 @@ Transform:
   m_GameObject: {fileID: 1552522038857799548}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.10226, y: 15, z: 3.64291}
+  m_LocalPosition: {x: -7.10226, y: 0, z: 3.64291}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3556125143007476391}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &6460842116411025699
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1552522038857799548}
-  serializedVersion: 5
-  m_Mass: 1000
-  m_LinearDamping: 3
-  m_AngularDamping: 0
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 80
-  m_CollisionDetection: 0
 --- !u!195 &5182325067678652816
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -245,7 +190,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 0
   m_Height: 2
-  m_BaseOffset: 0.3
+  m_BaseOffset: 4.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!95 &4946509938582185716
@@ -298,7 +243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1765798523753042638, guid: 79baf5d2821680245b59f09ab3261160, type: 3}
-  enemyBody: {fileID: 1552522038857799548}
+  enemyBody: {fileID: 213413028168530769}
   despawnTime: 0.5
   damageCooldown: 1
 --- !u!136 &-1432841353179193420
@@ -321,6 +266,33 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 3.2
-  m_Height: 14
+  m_Height: 10
   m_Direction: 1
-  m_Center: {x: 2.47, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &1608829759575469418
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1552522038857799548}
+  serializedVersion: 5
+  m_Mass: 1000
+  m_LinearDamping: 3
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
