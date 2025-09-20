@@ -7,6 +7,7 @@ public class WeaponController : MonoBehaviour
     [SerializeField] private AudioSource pistolFire;       // Sound effect when gun fires
     [SerializeField] private GameObject pistol;
     [SerializeField] private Camera playerCam;
+    [SerializeField] private Revolver revolver;          // Reference to revolver script to check ammo
 
     [Header("Weapon Settings")]
     [SerializeField] private InputActionReference fireAction; // Input reference for shooting
@@ -40,8 +41,12 @@ public class WeaponController : MonoBehaviour
         // Fire Rate limiting, can  only shoot if gun is idle and shot cooldown has passed
         if (Time.time >= nextTimeToFire && IsIdle())
         {
-            nextTimeToFire = Time.time + fireRate;
-            Shoot();
+            if (revolver != null && revolver.CanShoot())
+            {
+                nextTimeToFire = Time.time + fireRate;
+                Shoot();
+                revolver.ConsumeAmmo();
+            }
         }
     }
 

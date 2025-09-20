@@ -19,10 +19,10 @@ public class Revolver : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1")) // left click
-        {
-            Shoot();
-        }
+        //if (Input.GetButtonDown("Fire1")) // left click
+        //{
+        //    Shoot();
+        //}
 
         if (Input.GetKeyDown(KeyCode.R)) // press R to reload
         {
@@ -30,7 +30,12 @@ public class Revolver : MonoBehaviour
         }
     }
 
-    void Shoot()
+    public bool CanShoot()
+    {
+        return currentAmmo > 0;
+    }
+
+    public void ConsumeAmmo()
     {
         if (currentAmmo > 0)
         {
