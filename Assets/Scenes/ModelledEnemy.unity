@@ -220,7 +220,7 @@ MonoBehaviour:
   - {fileID: 1271051371}
   - {fileID: 210705916}
   - {fileID: 2115966596}
-  player: {fileID: 1765798523753042638, guid: 79baf5d2821680245b59f09ab3261160, type: 3}
+  player: {fileID: -8679921383154817045, guid: 321e54783ef0f81418dd305836073b57, type: 3}
 --- !u!4 &918128232
 Transform:
   m_ObjectHideFlags: 0
