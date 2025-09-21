@@ -210,6 +210,7 @@ MonoBehaviour:
   player: {fileID: 1765798523753042638, guid: 79baf5d2821680245b59f09ab3261160, type: 3}
   enemyBody: {fileID: 213413028168530769}
   despawnTime: 0.5
+  damageCooldown: 1
 --- !u!136 &-8367329574766538932
 CapsuleCollider:
   m_ObjectHideFlags: 0
