@@ -34,7 +34,7 @@ Material:
     - _SunGlow: 0.1
     - _SunIntensity: 1
     - _SunSize: 0.00039
-    - _TimeOfDay: 0.16104488
+    - _TimeOfDay: 0.7962147
     m_Colors:
     - _DayColor: {r: 0.29999998, g: 0.6, b: 1, a: 1}
     - _HorizonColor: {r: 0.8, g: 0.9, b: 1, a: 1}
