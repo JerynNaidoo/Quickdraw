@@ -74,4 +74,13 @@ public class Revolver : MonoBehaviour
             ammoText.text = currentAmmo + " / " + reserveAmmo;
         }
     }
+
+    public void AddReserveAmmo(int amount)
+    {
+        reserveAmmo += amount;
+        Debug.Log("Picked up ammo crate! Reserve now: " + reserveAmmo);
+        UpdateAmmoUI();
+    }
+
+
 }
