@@ -8,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject enemyPrefab;   // The enemy prefab to spawn
     public int maxEnemies = 10;      // Limit how many enemies can exist
     public int currentEnemies = 0;
+    private int enemiesSpawned = 0;
     public TextMeshProUGUI enemyCountText;
 
     [Header("Spawn Settings")]
@@ -26,7 +27,7 @@ public class EnemySpawner : MonoBehaviour
     {
         while (true)
         {
-            if (currentEnemies < maxEnemies)
+            if (enemiesSpawned < maxEnemies)
             {
                 SpawnEnemy();
             }
@@ -63,6 +64,7 @@ public class EnemySpawner : MonoBehaviour
         }
 
         currentEnemies++;
+        enemiesSpawned++;
         UpdateEnemyCountDisplay();
         Debug.Log($"Spawned enemy. Current enemies: {currentEnemies}");
     }
