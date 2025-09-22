@@ -39,7 +39,7 @@ public class PowerUpPad : MonoBehaviour
 
         if (isAvailable && other.CompareTag("Player"))
         {
-            Debug.Log("Poes touched the orb!");
+            Debug.Log("YOU TOUCHED THE ORB!");
             powerOrb.SetActive(false);
 
             if (PowerPadParticles != null)
