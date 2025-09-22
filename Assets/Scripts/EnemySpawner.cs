@@ -16,7 +16,14 @@ public class EnemySpawner : MonoBehaviour
     public Transform[] spawnPoints;  // Where enemies spawn
 
     [Header("References")]
-    public Transform player; // Assign the player in the inspector
+    public Transform player;           // Assign the player in the inspector
+    public EndFight endScreen; // assign the local panel
+    public Vector3 finalBattlePosition; // Where to move player for final battle
+
+    [Header("Final Battle Settings")]
+    public int killsRequiredForFinal = 10;
+
+    private int enemiesKilled = 0;
 
     private void Start()
     {
@@ -50,9 +57,10 @@ public class EnemySpawner : MonoBehaviour
         if (movement != null)
         {
             movement.player = player;
+            
         }
 
-        // Warp agent onto NavMesh so it doesn't float
+        // Warp agent onto NavMesh
         NavMeshAgent agent = enemy.GetComponent<NavMeshAgent>();
         if (agent != null)
         {
@@ -69,10 +77,18 @@ public class EnemySpawner : MonoBehaviour
         Debug.Log($"Spawned enemy. Current enemies: {currentEnemies}");
     }
 
+    // Call this from the Enemy script when it dies
     public void EnemyDied()
     {
         currentEnemies--;
+        enemiesKilled++;
         UpdateEnemyCountDisplay();
+
+        // Check if the final battle trigger is met
+        if (enemiesKilled >= killsRequiredForFinal)
+        {
+            StartCoroutine(TriggerFinalBattleSequence());
+        }
     }
 
     private void UpdateEnemyCountDisplay()
@@ -81,5 +97,32 @@ public class EnemySpawner : MonoBehaviour
         {
             enemyCountText.text = $"{currentEnemies}";
         }
+    }
+
+    private System.Collections.IEnumerator TriggerFinalBattleSequence()
+    {
+        // Delay 2 seconds
+        yield return new WaitForSeconds(2f);
+
+        // Show first message
+        if (endScreen != null)
+            endScreen.ShowMessage("You proved worthy of challenge. I have to take it upon my hands.");
+        
+
+        yield return new WaitForSeconds(2f);
+
+        // Show prepare message
+        if (endScreen != null)
+            endScreen.ShowMessage("Prepare yourself for the final battle!");
+
+
+        // Move the player
+        if (player != null)
+            player.position = finalBattlePosition;
+
+        // Optional: hide the black panel after a short delay
+        yield return new WaitForSeconds(1f);
+        if (endScreen != null && endScreen.blackPanel != null)
+            endScreen.blackPanel.SetActive(false);
     }
 }
