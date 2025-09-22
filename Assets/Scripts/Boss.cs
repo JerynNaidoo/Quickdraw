@@ -10,6 +10,8 @@ public class Boss : MonoBehaviour
     [SerializeField] private float despawnTime = 2f;
     private bool isDead = false;
 
+    public EndGameCinematic endCinematic;
+
     private void Awake()
     {
         currentHealth = maxHealth;
@@ -36,8 +38,13 @@ public class Boss : MonoBehaviour
         isDead = true;
         Debug.Log($"{gameObject.name} died!");
 
-        // TODO: Play animation, particles, sound here if needed
+        if (endCinematic != null)
+        {
+            endCinematic.StartCinematic();
+        }
+
 
         Destroy(gameObject, despawnTime);
+        
     }
 }
