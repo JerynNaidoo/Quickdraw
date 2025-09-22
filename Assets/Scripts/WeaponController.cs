@@ -67,12 +67,37 @@ public class WeaponController : MonoBehaviour
         if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out hit, range))
         {
             Debug.Log("Hit: " + hit.transform.name);
-            // Check if enemy was hit
-            Enemy enemy = hit.transform.GetComponentInParent<Enemy>();
+
+            // Try to get Enemy script from hit object or any parent
+            Enemy enemy = hit.transform.GetComponent<Enemy>();
+            Transform current = hit.transform;
+            while (enemy == null && current.parent != null)
+            {
+                current = current.parent;
+                enemy = current.GetComponent<Enemy>();
+            }
+
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
             }
+            else
+            {
+                // If not an Enemy, try Boss script
+                current = hit.transform;
+                Boss boss = hit.transform.GetComponent<Boss>();
+                while (boss == null && current.parent != null)
+                {
+                    current = current.parent;
+                    boss = current.GetComponent<Boss>();
+                }
+
+                if (boss != null)
+                {
+                    boss.TakeDamage(damage);
+                }
+            }
         }
     }
+
 }
