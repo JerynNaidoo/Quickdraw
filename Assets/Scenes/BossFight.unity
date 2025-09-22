@@ -2502,61 +2502,6 @@ Transform:
   - {fileID: 2073426217}
   m_Father: {fileID: 1583822798}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1222909885
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1222909887}
-  - component: {fileID: 1222909886}
-  m_Layer: 0
-  m_Name: EndGameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1222909886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1222909885}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69783a6d7446fb24f86b54678a7ce2ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blackPanel: {fileID: 0}
-  endText: {fileID: 0}
-  panelFadeDuration: 1.2
-  textFadeDuration: 1.2
-  displayDuration: 2
-  finalHoldDuration: 3
-  finalLineSizeMultiplier: 1.25
-  autoLoadScene: 0
-  sceneToLoad: MainMenu
-  delayBeforeLoad: 4
-  startOnStart: 0
---- !u!4 &1222909887
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1222909885}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1608.0332, y: 55.20172, z: 284.818}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1332343043 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5f24682a2c8370144856f1ad523c5698, type: 3}
@@ -3900,6 +3845,5 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1583822798}
-  - {fileID: 1222909887}
   - {fileID: 1717275098}
   - {fileID: 1799924518}
