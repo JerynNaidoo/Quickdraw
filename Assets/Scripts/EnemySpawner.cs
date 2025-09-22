@@ -1,12 +1,14 @@
 using UnityEngine;
 using UnityEngine.AI;
+using TMPro;
 
 public class EnemySpawner : MonoBehaviour
 {
     [Header("Enemy Settings")]
     public GameObject enemyPrefab;   // The enemy prefab to spawn
     public int maxEnemies = 10;      // Limit how many enemies can exist
-    private int currentEnemies = 0;
+    public int currentEnemies = 0;
+    public TextMeshProUGUI enemyCountText;
 
     [Header("Spawn Settings")]
     public float spawnInterval = 3f; // Time between spawns
@@ -61,10 +63,21 @@ public class EnemySpawner : MonoBehaviour
         }
 
         currentEnemies++;
+        UpdateEnemyCountDisplay();
+        Debug.Log($"Spawned enemy. Current enemies: {currentEnemies}");
     }
 
     public void EnemyDied()
     {
         currentEnemies--;
+        UpdateEnemyCountDisplay();
+    }
+
+    private void UpdateEnemyCountDisplay()
+    {
+        if (enemyCountText != null)
+        {
+            enemyCountText.text = $"{currentEnemies}";
+        }
     }
 }
