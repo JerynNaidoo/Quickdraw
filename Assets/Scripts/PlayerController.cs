@@ -86,6 +86,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 velocity;   // for gravity
     private Camera playerCamera;
 
+    public GameObject playerModel;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -133,15 +135,17 @@ public class PlayerController : MonoBehaviour
     {
         // Mouse input
         Vector2 mouseDelta = Mouse.current.delta.ReadValue() * lookSensitivity;
-
         rotationX -= mouseDelta.y;
         rotationY += mouseDelta.x;
-
         // Clamp vertical rotation
         rotationX = Mathf.Clamp(rotationX, minLookX, maxLookX);
 
-        // Rotate camera up/down
-        playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0f, 0f);
+        // Create the camera rotation
+        Quaternion cameraRotation = Quaternion.Euler(rotationX, 0f, 0f);
+
+        // Apply to both camera and arms
+        playerCamera.transform.localRotation = cameraRotation;
+        playerModel.transform.localRotation = cameraRotation; // Add this
 
         // Rotate player left/right
         transform.rotation = Quaternion.Euler(0f, rotationY, 0f);
