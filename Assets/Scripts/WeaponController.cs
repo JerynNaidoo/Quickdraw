@@ -101,7 +101,8 @@ public class WeaponController : MonoBehaviour
         }
     }
 
-    
+    public float GetDamage() => damage;
+    public void SetDamage(float newDamage) => damage = newDamage;
 
 
 }

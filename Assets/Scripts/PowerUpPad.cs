@@ -1,11 +1,12 @@
+﻿using System.Collections;
 using UnityEngine;
-using System.Collections;
+using UnityEngine.AI;
 
 public enum PowerUpType
 {
     SpeedBoost,
     DamageIncrease,
-    Shield,
+    Invisibility,
     HealthRestore
 }
 public class PowerUpPad : MonoBehaviour
@@ -96,21 +97,53 @@ public class PowerUpPad : MonoBehaviour
         switch (currentPowerUp)
         {
             case PowerUpType.SpeedBoost:
-                Debug.Log("Player picked up a Speed Boost! (+5 speed for 2 seconds)");
+                PlayerController playerController = player.GetComponent<PlayerController>();
+                if (playerController != null)
+                {
+                    StartCoroutine(ActivateSpeedBoost(playerController, 50f, 10f)); // +2 speed for 5 seconds
+                    Debug.Log("Player picked up a Speed Boost! (+2 speed for 5 seconds)");
+                }
+                else
+                {
+                    Debug.LogWarning("No PlayerController found on player for SpeedBoost!");
+                }
                 break;
+
+
+
             case PowerUpType.DamageIncrease:
+                WeaponController weapon = player.GetComponentInChildren<WeaponController>();
+
                 
-                    
-                    Debug.Log("Player picked up a Damage Boost!");
-                
+                if (weapon == null)
+                {
+                    GameObject weaponHandler = GameObject.Find("WeaponHandler");
+                    if (weaponHandler != null)
+                        weapon = weaponHandler.GetComponentInChildren<WeaponController>();
+                }
+
+                if (weapon != null)
+                {
+                    StartCoroutine(ActivateDamageBoost(weapon, 2f, 5f)); // 2× damage for 5 seconds
+                    Debug.Log("Player picked up a Damage Boost! (Damage doubled for 5 seconds)");
+                }
+                else
+                {
+                    Debug.LogWarning("No WeaponController found in player or WeaponHandler!");
+                }
                 break;
-            case PowerUpType.Shield:
-                Debug.Log("Player picked up a Shield! (Temporary protection active)");
+
+            case PowerUpType.Invisibility:
+                StartCoroutine(ActivateInvisibility(player, 5f)); // 5 seconds invisibility
+                Debug.Log("Player picked up Invisibility! (Enemies temporarily disabled)");
                 break;
+
+
+
             case PowerUpType.HealthRestore:
                 if (healthManager != null)
                 {
-                    // Restore 1 bar, or more if you want (e.g., 2)
+                    
                     healthManager.AddOne();
                     Debug.Log("Player picked up a Health Restore! (+1 health bar)");
                 }
@@ -121,6 +154,49 @@ public class PowerUpPad : MonoBehaviour
                 break;
         }
     }
+
+    private IEnumerator ActivateDamageBoost(WeaponController weapon, float multiplier, float duration)
+    {
+        float originalDamage = weapon.GetDamage();
+        weapon.SetDamage(originalDamage * multiplier);
+
+        Debug.Log($"Damage increased from {originalDamage} to {weapon.GetDamage()} for {duration} seconds.");
+
+        yield return new WaitForSeconds(duration);
+
+        weapon.SetDamage(originalDamage);
+        Debug.Log("Damage boost ended. Damage returned to normal.");
+    }
+
+    private IEnumerator ActivateSpeedBoost(PlayerController playerController, float boostAmount, float duration)
+    {
+        float originalSpeed = playerController.speed;
+        playerController.speed += boostAmount;
+
+        Debug.Log($"Speed Boost Active! Speed increased from {originalSpeed} → {playerController.speed}");
+
+        yield return new WaitForSeconds(duration);
+
+        playerController.speed = originalSpeed;
+        Debug.Log("Speed Boost expired. Speed reverted to normal.");
+    }
+
+    private IEnumerator ActivateInvisibility(GameObject player, float duration)
+    {
+        
+        NavMeshAgent[] agents = FindObjectsOfType<NavMeshAgent>();
+        foreach (NavMeshAgent agent in agents)
+            agent.isStopped = true;
+
+        // Wait for duration
+        yield return new WaitForSeconds(duration);
+
+        
+        foreach (NavMeshAgent agent in agents)
+            agent.isStopped = false;
+    }
+
+
 
 }
 
