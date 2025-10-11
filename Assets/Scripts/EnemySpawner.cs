@@ -1,66 +1,114 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 using TMPro;
+using System.Collections;
 
 public class EnemySpawner : MonoBehaviour
 {
     [Header("Enemy Settings")]
-    public GameObject enemyPrefab;   // The enemy prefab to spawn
-    public int maxEnemies = 10;      // Limit how many enemies can exist
-    public int currentEnemies = 0;
-    private int enemiesSpawned = 0;
+    public GameObject enemyPrefab;       // Enemy prefab
     public TextMeshProUGUI enemyCountText;
 
     [Header("Spawn Settings")]
-    public float spawnInterval = 3f; // Time between spawns
-    public Transform[] spawnPoints;  // Where enemies spawn
+    public Transform[] spawnPoints;      // Spawn locations
+    public Transform player;             // Player reference
+    public float spawnInterval = 1.5f;   // Time between spawns
 
-    [Header("References")]
-    public Transform player;           // Assign the player in the inspector
-    public EndFight endScreen; // assign the local panel
-    public Vector3 finalBattlePosition; // Where to move player for final battle
+    [Header("Wave Settings")]
+    public int totalWaves = 3;           // Total waves
+    public int enemiesInFirstWave = 2;   // Starting enemies per wave
+    public float waveInterval = 15f;     // Delay between waves
 
     [Header("Final Battle Settings")]
-    public int killsRequiredForFinal = 10;
+    public EndFight endFight;            // Cinematic system
+    public Vector3 finalBattlePosition;  // Player position for final battle
 
-    private int enemiesKilled = 0;
+    [Header("Difficulty Scaling")]
+    public float enemyHealthIncrease = 20f; // Extra HP per wave
+
+    private int currentWave = 0;
+    private int enemiesAlive = 0;
+    private Coroutine waveCoroutine;
+    private bool finalBattleTriggered = false;
 
     private void Start()
     {
-        StartCoroutine(SpawnLoop());
+        currentWave = 0;
+        enemiesAlive = 0;
+        finalBattleTriggered = false;
+        waveCoroutine = StartCoroutine(WaveRoutine());
     }
 
-    private System.Collections.IEnumerator SpawnLoop()
+    private IEnumerator WaveRoutine()
     {
-        while (true)
+        yield return new WaitForSeconds(2f); // Initial delay
+
+
+        while (currentWave < totalWaves)
         {
-            if (enemiesSpawned < maxEnemies)
+            currentWave++; 
+            int enemiesToSpawn = enemiesInFirstWave + (currentWave - 1) * 3;
+
+            Debug.Log($"--- Wave {currentWave}/{totalWaves} ({enemiesToSpawn} enemies) ---");
+
+            // Show wave start message
+            if (endFight != null)
             {
-                SpawnEnemy();
+                endFight.ShowMessage($"Wave {currentWave} incoming!");
+                yield return new WaitForSeconds(2f);
+                endFight.Hide();
             }
-            yield return new WaitForSeconds(spawnInterval);
+
+            // Spawn enemies
+            for (int i = 0; i < enemiesToSpawn; i++)
+            {
+                SpawnEnemy(currentWave);
+                yield return new WaitForSeconds(spawnInterval);
+            }
+
+            // Wait until all enemies are dead
+            while (enemiesAlive > 0)
+                yield return null;
+
+            Debug.Log($"Wave {currentWave} cleared!");
+
+            // Show wave cleared message except for final wave
+            if (currentWave < totalWaves && endFight != null)
+            {
+                endFight.ShowMessage($"Wave {currentWave} cleared! Next wave in {waveInterval} seconds...");
+                yield return new WaitForSeconds(waveInterval);
+                endFight.Hide();
+            }
+
+            
         }
+        if (!finalBattleTriggered)
+        {
+            finalBattleTriggered = true;
+            StartCoroutine(TriggerFinalBattleSequence());
+        }
+
+        // Trigger final battle
+
     }
 
-    private void SpawnEnemy()
+    private void SpawnEnemy(int wave)
     {
         if (enemyPrefab == null || spawnPoints.Length == 0 || player == null) return;
 
-        // Pick a random spawn point
         Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-
-        // Instantiate the enemy
         GameObject enemy = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
 
-        // Assign player reference to EnemyMovement
         Enemy movement = enemy.GetComponent<Enemy>();
         if (movement != null)
         {
             movement.player = player;
-            
+            float newHealth = 100f + (enemyHealthIncrease * (wave - 1));
+            typeof(Enemy)
+                .GetField("currentHealth", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
+                .SetValue(movement, newHealth);
         }
 
-        // Warp agent onto NavMesh
         NavMeshAgent agent = enemy.GetComponent<NavMeshAgent>();
         if (agent != null)
         {
@@ -71,58 +119,55 @@ public class EnemySpawner : MonoBehaviour
             }
         }
 
-        currentEnemies++;
-        enemiesSpawned++;
+        enemiesAlive++;
         UpdateEnemyCountDisplay();
-        Debug.Log($"Spawned enemy. Current enemies: {currentEnemies}");
+
+        Debug.Log($"Spawned enemy. Enemies alive: {enemiesAlive}");
     }
 
-    // Call this from the Enemy script when it dies
+    // Called by Enemy script when it dies
     public void EnemyDied()
     {
-        currentEnemies--;
-        enemiesKilled++;
+        enemiesAlive = Mathf.Max(0, enemiesAlive - 1);
         UpdateEnemyCountDisplay();
-
-        // Check if the final battle trigger is met
-        if (enemiesKilled >= killsRequiredForFinal)
-        {
-            StartCoroutine(TriggerFinalBattleSequence());
-        }
+        Debug.Log($"Enemy died! Enemies alive: {enemiesAlive}");
     }
 
     private void UpdateEnemyCountDisplay()
     {
         if (enemyCountText != null)
-        {
-            enemyCountText.text = $"Enemies: {currentEnemies}";
-        }
+            enemyCountText.text = $"Enemies: {Mathf.Max(enemiesAlive, 0)}";
     }
 
-    private System.Collections.IEnumerator TriggerFinalBattleSequence()
+    private IEnumerator TriggerFinalBattleSequence()
     {
-        // Delay 2 seconds
-        yield return new WaitForSeconds(2f);
+        Debug.Log("Starting final battle cinematic...");
+        //yield return new WaitForSeconds(1f);
 
-        // Show first message
-        if (endScreen != null)
-            endScreen.ShowMessage("You proved worthy of challenge. I have to take it upon my hands.");
-        
+        //// Play cinematic
+        //if (endFight != null)
+        //{
+        //    StartCoroutine(endFight.PlayFinalSequence());
+        //}
+        //else
+        //{
+        //    Debug.LogWarning("EndFight reference not assigned!");
+        //}
 
-        yield return new WaitForSeconds(2f);
+        //// Move player to final battle position
+        //if (player != null)
+        //{
+        //    player.position = finalBattlePosition;
+        //    Debug.Log($"Player moved to final battle arena at {finalBattlePosition}");
+        //}
 
-        // Show prepare message
-        if (endScreen != null)
-            endScreen.ShowMessage("Prepare yourself for the final battle!");
 
-
-        // Move the player
+        yield return StartCoroutine(endFight.PlayFinalSequence());
         if (player != null)
+        {
             player.position = finalBattlePosition;
+            Debug.Log($"Player moved to final battle arena at {finalBattlePosition}");
+        }
 
-        // Optional: hide the black panel after a short delay
-        yield return new WaitForSeconds(1f);
-        if (endScreen != null && endScreen.blackPanel != null)
-            endScreen.blackPanel.SetActive(false);
     }
 }

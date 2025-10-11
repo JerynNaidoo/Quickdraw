@@ -92,12 +92,7 @@ public class EndGameCinematic : MonoBehaviour
         yield return StartCoroutine(FadeInText("Thank you for playing.", textFadeDuration));
         yield return new WaitForSeconds(finalHoldDuration);
 
-        // optional scene transition
-        if (autoLoadScene && !string.IsNullOrEmpty(sceneToLoad))
-        {
-            yield return new WaitForSeconds(delayBeforeLoad);
-            SceneManager.LoadScene(sceneToLoad);
-        }
+      
     }
 
     IEnumerator FadeImageAlpha(Image img, float from, float to, float duration)
