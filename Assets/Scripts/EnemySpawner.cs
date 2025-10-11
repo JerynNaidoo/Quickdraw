@@ -8,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
     [Header("Enemy Settings")]
     public GameObject enemyPrefab;       // Enemy prefab
     public TextMeshProUGUI enemyCountText;
+    public TextMeshProUGUI waveNumber; 
 
     [Header("Spawn Settings")]
     public Transform[] spawnPoints;      // Spawn locations
@@ -42,19 +43,20 @@ public class EnemySpawner : MonoBehaviour
     private IEnumerator WaveRoutine()
     {
         yield return new WaitForSeconds(2f); // Initial delay
-
+        UpdateWaveCountDisplay();
 
         while (currentWave < totalWaves)
         {
-            currentWave++; 
+            currentWave++;
+            UpdateWaveCountDisplay();
             int enemiesToSpawn = enemiesInFirstWave + (currentWave - 1) * 3;
 
             Debug.Log($"--- Wave {currentWave}/{totalWaves} ({enemiesToSpawn} enemies) ---");
 
             // Show wave start message
-            if (endFight != null)
+            if (endFight != null && currentWave == 1)
             {
-                endFight.ShowMessage($"Wave {currentWave} incoming!");
+                endFight.ShowMessage($"Waves of outlaws incoming!");
                 yield return new WaitForSeconds(2f);
                 endFight.Hide();
             }
@@ -75,9 +77,10 @@ public class EnemySpawner : MonoBehaviour
             // Show wave cleared message except for final wave
             if (currentWave < totalWaves && endFight != null)
             {
-                endFight.ShowMessage($"Wave {currentWave} cleared! Next wave in {waveInterval} seconds...");
-                yield return new WaitForSeconds(waveInterval);
-                endFight.Hide();
+                yield return StartCoroutine(ShowWaveClearedAndCountdown(currentWave, waveInterval));
+                //endFight.ShowMessage($"Wave cleared! Next wave in {waveInterval} seconds...");
+                //yield return new WaitForSeconds(waveInterval);
+                //endFight.Hide();
             }
 
             
@@ -91,6 +94,25 @@ public class EnemySpawner : MonoBehaviour
         // Trigger final battle
 
     }
+
+
+    private IEnumerator ShowWaveClearedAndCountdown(int wave, float seconds)
+    {
+        if (endFight != null)
+        {
+            endFight.ShowMessage($"Wave Cleared!");
+            yield return new WaitForSeconds(1.0f);
+
+            for (int i = (int)seconds; i > 0; i--)
+            {
+                endFight.ShowMessage($"Next wave incoming in {i} seconds...");
+                yield return new WaitForSeconds(1f);
+            }
+
+            endFight.Hide();
+        }
+    }
+
 
     private void SpawnEnemy(int wave)
     {
@@ -137,6 +159,12 @@ public class EnemySpawner : MonoBehaviour
     {
         if (enemyCountText != null)
             enemyCountText.text = $"Enemies: {Mathf.Max(enemiesAlive, 0)}";
+    }
+
+    private void UpdateWaveCountDisplay()
+    {
+        if (waveNumber != null)
+            waveNumber.text = $"Wave: {currentWave}";
     }
 
     private IEnumerator TriggerFinalBattleSequence()

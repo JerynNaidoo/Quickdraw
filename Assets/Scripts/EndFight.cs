@@ -69,9 +69,9 @@ public class EndFight : MonoBehaviour
 
         string[] lines = new string[]
         {
-            "You proved worthy of challenge.",
-            "I have to take it upon my hands.",
-            "Prepare yourself for the final battle!"
+            "YOU PROVED WORTHY OF A THREAT",
+            "THE BOSS HEARD THE COMMOTIION, \nHE'S WAITING FOR YOU...",
+            "THIS TOWN AIN'T BIG ENOUGH \nFOR THE TWO OF YOU"
         };
 
         foreach (string line in lines)
@@ -82,7 +82,7 @@ public class EndFight : MonoBehaviour
         }
 
         cinematicText.fontSize = originalFontSize * finalLineSizeMultiplier;
-        yield return StartCoroutine(FadeInText("The final battle begins...", textFadeDuration));
+        yield return StartCoroutine(FadeInText("THE FINAL DUEL BEGINS...", textFadeDuration));
         yield return new WaitForSeconds(finalHoldDuration);
 
         if (autoLoadScene && !string.IsNullOrEmpty(sceneToLoad))
