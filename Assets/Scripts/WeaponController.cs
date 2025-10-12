@@ -5,7 +5,8 @@ using UnityEngine.InputSystem;
 public class WeaponController : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private AudioSource pistolFire;       // Sound effect when gun fires
+    [SerializeField] private AudioSource pistolFire;
+    [SerializeField] private GameObject player;// Sound effect when gun fires
     [SerializeField] private GameObject pistol;
     [SerializeField] private Camera playerCam;
     [SerializeField] private Revolver revolver;          // Reference to revolver script to check ammo
@@ -60,17 +61,14 @@ public class WeaponController : MonoBehaviour
     private void Shoot()
     {
         // Play firing sound and animation
+        pistolAnimator.Play("ShootRevolver");
+        // Play firing sound
         pistolFire.Play();
-        pistolAnimator.Play("PistolFire");
 
         // Raycast forward from the camera
         if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out RaycastHit hit, range))
         {
             Debug.Log("Hit: " + hit.transform.name);
-
-
-
-
 
             if (bloodEffectPrefab != null &&
                 (hit.collider.CompareTag("Enemy") || hit.collider.CompareTag("Boss")))

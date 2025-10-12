@@ -278,12 +278,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 1552522038857799548, guid: 0335efb5cc7af65419af83c1ec624832, type: 3}
   maxEnemies: 10
+  currentEnemies: 0
+  enemyCountText: {fileID: 0}
   spawnInterval: 3
   spawnPoints:
   - {fileID: 407880995}
   - {fileID: 947916329}
   - {fileID: 1207509232}
   player: {fileID: 1765798523753042638, guid: 79baf5d2821680245b59f09ab3261160, type: 3}
+  endScreen: {fileID: 0}
+  finalBattlePosition: {x: 0, y: 0, z: 0}
+  killsRequiredForFinal: 10
 --- !u!4 &1900942929
 Transform:
   m_ObjectHideFlags: 0
@@ -311,14 +316,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad160f7b88b21da4ab1978c2f0ec3b36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1765798523753042638, guid: 79baf5d2821680245b59f09ab3261160, type: 3}
-  agent: {fileID: 0}
-  enemyBody: {fileID: 1552522038857799548, guid: 0335efb5cc7af65419af83c1ec624832, type: 3}
-  enemyBodyRb: {fileID: 0}
-  enemyBodyCollider: {fileID: 0}
-  currentHealth: 100
-  despawnTime: 2
-  isDead: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
