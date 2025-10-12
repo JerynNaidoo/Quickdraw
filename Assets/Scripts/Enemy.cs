@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -23,6 +24,7 @@ public class Enemy : MonoBehaviour
 
     private Animator animator;
 
+    
     private void Awake()
     {
         if (player == null)
@@ -69,6 +71,8 @@ public class Enemy : MonoBehaviour
 
         currentHealth -= amount;
         Debug.Log($"{gameObject.name} took {amount} damage. Remaining HP: {currentHealth}");
+
+        
 
         if (currentHealth <= 0f)
         {
@@ -120,6 +124,16 @@ public class Enemy : MonoBehaviour
             lastDamageTime = Time.time;
 
             animator.SetBool("canAttack", true);
+            StartCoroutine(ResetAttackAfterDelay(2f));
         }
     }
+
+    private IEnumerator ResetAttackAfterDelay(float delay)
+    {
+        //Debug.Log("Coroutine started: will reset attack in " + delay + " seconds");
+        yield return new WaitForSeconds(delay);
+        animator.SetBool("canAttack", false);
+        //Debug.Log("canAttack reset to false");
+    }
+
 }

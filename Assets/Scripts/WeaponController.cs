@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -17,7 +17,7 @@ public class WeaponController : MonoBehaviour
     [SerializeField] private float fireRate = 0.5f;          // Time between shots (must not be below 0.33f, shoot animation is 0.33s)
 
     private float nextTimeToFire = 0f; // Keeps track of cooldown between shots
-
+    [SerializeField] private GameObject bloodEffectPrefab;
     private Animator pistolAnimator; // animator component, will be used to check animation states
 
     private void Awake()
@@ -59,47 +59,49 @@ public class WeaponController : MonoBehaviour
 
     private void Shoot()
     {
-        // Play firing sound
+        // Play firing sound and animation
         pistolFire.Play();
         pistolAnimator.Play("PistolFire");
 
-        // Raycast forward from camera
-        RaycastHit hit;
-        if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out hit, range))
+        // Raycast forward from the camera
+        if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out RaycastHit hit, range))
         {
             Debug.Log("Hit: " + hit.transform.name);
 
-            // Try to get Enemy script from hit object or any parent
-            Enemy enemy = hit.transform.GetComponent<Enemy>();
-            Transform current = hit.transform;
-            while (enemy == null && current.parent != null)
+
+
+
+
+            if (bloodEffectPrefab != null &&
+                (hit.collider.CompareTag("Enemy") || hit.collider.CompareTag("Boss")))
             {
-                current = current.parent;
-                enemy = current.GetComponent<Enemy>();
+                GameObject blood = Instantiate(
+                    bloodEffectPrefab,
+                    hit.point + hit.normal * 0.05f,
+                    Quaternion.LookRotation(hit.normal)
+                );
+                blood.layer = LayerMask.NameToLayer("Ignore Raycast");
+                Destroy(blood, 2f);
+
             }
 
+            // --- Damage Enemy ---
+            Enemy enemy = hit.transform.GetComponentInParent<Enemy>();
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
+                return;
             }
-            else
-            {
-                // If not an Enemy, try Boss script
-                current = hit.transform;
-                Boss boss = hit.transform.GetComponent<Boss>();
-                while (boss == null && current.parent != null)
-                {
-                    current = current.parent;
-                    boss = current.GetComponent<Boss>();
-                }
 
-                if (boss != null)
-                {
-                    boss.TakeDamage(damage);
-                }
+            // --- Damage Boss ---
+            Boss boss = hit.transform.GetComponentInParent<Boss>();
+            if (boss != null)
+            {
+                boss.TakeDamage(damage);
             }
         }
     }
+
 
     public float GetDamage() => damage;
     public void SetDamage(float newDamage) => damage = newDamage;
