@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     private Collider enemyBodyCollider;
 
     [Header("Stats")]
-    private float currentHealth = 100f;
+    [SerializeField] private float currentHealth = 100f; // Made SerializeField so it can be adjusted in Inspector
 
     [Header("Death Settings")]
     public float despawnTime = 2f;
@@ -21,16 +21,20 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float damageCooldown = 1.0f;
     private float lastDamageTime;
 
+    private Animator animator;
 
     private void Awake()
     {
-        player = GameObject.Find("Player").transform;
+        if (player == null)
+            player = GameObject.Find("Player")?.transform;
+
         agent = GetComponent<NavMeshAgent>();
 
         if (enemyBody != null)
         {
             enemyBodyRb = enemyBody.GetComponent<Rigidbody>();
             enemyBodyCollider = enemyBody.GetComponent<Collider>();
+            animator = GetComponentInChildren<Animator>();
 
             if (enemyBodyRb != null)
             {
@@ -61,50 +65,61 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
-        if (!isDead)
-        {
-            currentHealth -= amount;
-            Debug.Log(gameObject.name + " took " + amount + " damage. Remaining HP: " + currentHealth);
+        if (isDead) return;
 
-            if (currentHealth <= 0f)
-            {
-                Die();
-            }
+        currentHealth -= amount;
+        Debug.Log($"{gameObject.name} took {amount} damage. Remaining HP: {currentHealth}");
+
+        if (currentHealth <= 0f)
+        {
+            Die();
         }
     }
 
     private void Die()
     {
+        if (isDead) return;
+
         isDead = true;
         agent.enabled = false; // stop NavMesh movement
 
+        // Enable ragdoll
         if (enemyBodyRb != null)
         {
-            // Release rigidbody so ragdoll works
             enemyBodyRb.constraints = RigidbodyConstraints.None;
             enemyBodyRb.useGravity = true;
 
-            // Knockback force
+            // Optional knockback force
             enemyBodyRb.AddForce(-transform.forward * 5f + Vector3.up * 2f, ForceMode.Impulse);
         }
 
+        // Notify spawner
         EnemySpawner spawner = Object.FindFirstObjectByType<EnemySpawner>();
         if (spawner != null)
+        {
             spawner.EnemyDied();
+        }
+        else
+        {
+            Debug.LogWarning("EnemySpawner not found in scene!");
+        }
 
+        // Destroy the enemy object after a delay
         Destroy(gameObject, despawnTime);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        // check if we hit the player
         if (other.CompareTag("Player") && Time.time - lastDamageTime > damageCooldown)
         {
-            HealthBarManager health = FindFirstObjectByType<HealthBarManager>();
-            if (health != null) health.RemoveOne();
-            lastDamageTime = Time.time;
-        }
+            // Damage the player (replace this with your own health system)
+            HealthBarManager health = Object.FindFirstObjectByType<HealthBarManager>();
+            if (health != null)
+                health.RemoveOne();
 
+            lastDamageTime = Time.time;
+
+            animator.SetBool("canAttack", true);
+        }
     }
 }
-
