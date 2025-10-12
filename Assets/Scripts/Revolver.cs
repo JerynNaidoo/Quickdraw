@@ -7,6 +7,9 @@ public class Revolver : MonoBehaviour
     public int maxAmmo = 6;          // revolver cylinder size
     public int currentAmmo;          // ammo in cylinder
     public int reserveAmmo = 30;     // total spare bullets (not including cylinder)
+    [SerializeField] private GameObject player;  // hold reference to player to get animator
+
+    private Animator pistolAnimator;
 
     [Header("References")]
     public TextMeshProUGUI ammoText;
@@ -15,7 +18,8 @@ public class Revolver : MonoBehaviour
     {
         currentAmmo = maxAmmo; // start full
         UpdateAmmoUI();
-    }
+        pistolAnimator = player.GetComponent<Animator>();
+}
 
     void Update()
     {
@@ -60,6 +64,7 @@ public class Revolver : MonoBehaviour
         int needed = maxAmmo - currentAmmo;          // bullets required to fill cylinder
         int bulletsToLoad = Mathf.Min(needed, reserveAmmo); // load only what's available
 
+        pistolAnimator.Play("ReloadRevolver");
         currentAmmo += bulletsToLoad;
         reserveAmmo -= bulletsToLoad;
 

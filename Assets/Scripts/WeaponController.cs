@@ -5,6 +5,7 @@ public class WeaponController : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private AudioSource pistolFire;       // Sound effect when gun fires
+    [SerializeField] private GameObject player;
     [SerializeField] private GameObject pistol;
     [SerializeField] private Camera playerCam;
     [SerializeField] private Revolver revolver;          // Reference to revolver script to check ammo
@@ -13,7 +14,7 @@ public class WeaponController : MonoBehaviour
     [SerializeField] private InputActionReference fireAction; // Input reference for shooting
     [SerializeField] private float damage = 50f;
     [SerializeField] private float range = 100f;
-    [SerializeField] private float fireRate = 0.5f;          // Time between shots (must not be below 0.33f, shoot animation is 0.33s)
+    [SerializeField] private float fireRate = 0.33f;          // Time between shots (must not be below 0.3f, shoot animation is 0.3s)
 
     private float nextTimeToFire = 0f; // Keeps track of cooldown between shots
 
@@ -21,7 +22,7 @@ public class WeaponController : MonoBehaviour
 
     private void Awake()
     {
-        pistolAnimator = pistol.GetComponent<Animator>();
+        pistolAnimator = player.GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -58,9 +59,9 @@ public class WeaponController : MonoBehaviour
 
     private void Shoot()
     {
+        pistolAnimator.Play("ShootRevolver");
         // Play firing sound
         pistolFire.Play();
-        pistolAnimator.Play("PistolFire");
 
         // Raycast forward from camera
         RaycastHit hit;

@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7d75402bf3aa754a8037c90dd730301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: -8679921383154817045, guid: 321e54783ef0f81418dd305836073b57, type: 3}
+  player: {fileID: 3273537656167331661, guid: 04b8244241a512049971a3014651522e, type: 3}
   enemyBody: {fileID: 1552522038857799548}
   despawnTime: 0.5
   damageCooldown: 1
