@@ -95,7 +95,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (enemyCountText != null)
         {
-            enemyCountText.text = $"{currentEnemies}";
+            enemyCountText.text = $"Enemies: {currentEnemies}";
         }
     }
 
