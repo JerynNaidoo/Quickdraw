@@ -21,6 +21,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float damageCooldown = 1.0f;
     private float lastDamageTime;
 
+    private Animator animator;
+
     private void Awake()
     {
         if (player == null)
@@ -32,6 +34,7 @@ public class Enemy : MonoBehaviour
         {
             enemyBodyRb = enemyBody.GetComponent<Rigidbody>();
             enemyBodyCollider = enemyBody.GetComponent<Collider>();
+            animator = GetComponentInChildren<Animator>();
 
             if (enemyBodyRb != null)
             {
@@ -115,6 +118,8 @@ public class Enemy : MonoBehaviour
                 health.RemoveOne();
 
             lastDamageTime = Time.time;
+
+            animator.SetBool("canAttack", true);
         }
     }
 }

@@ -31,7 +31,7 @@ public class PowerUpPad : MonoBehaviour
 
     [Header("UI Feedback")]
     public TextMeshProUGUI powerUpText;
-    
+
 
     public float floatStrength = 0.5f;
     public float rotationSpeed = 0.0f;
@@ -130,7 +130,7 @@ public class PowerUpPad : MonoBehaviour
         orbRenderer.material.color = chosenColor;
 
         // Optional: also color the orb’s particle effect if it has one
-       
+
     }
 
     private void ApplyPowerUp(GameObject player)
@@ -226,7 +226,7 @@ public class PowerUpPad : MonoBehaviour
         powerUpText.text = message;
         powerUpText.gameObject.SetActive(true);
 
-        
+
         StartCoroutine(HideTextAfterDelay(displayTime));
     }
 
@@ -238,7 +238,7 @@ public class PowerUpPad : MonoBehaviour
     }
 
 
-    
+
     private IEnumerator ActivateDamageBoost(WeaponController weapon, float multiplier, float duration)
     {
         float originalDamage = weapon.GetDamage();
@@ -273,6 +273,9 @@ public class PowerUpPad : MonoBehaviour
         yield return new WaitForSeconds(duration);
 
         foreach (NavMeshAgent agent in agents)
-            agent.isStopped = false;
+            if (agent != null)
+            {
+                agent.isStopped = false;
+            }
     }
 }

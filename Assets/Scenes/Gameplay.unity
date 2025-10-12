@@ -588,7 +588,7 @@ Transform:
   m_GameObject: {fileID: 258588481}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.0000000018626451, w: 1}
-  m_LocalPosition: {x: 163.42, y: 29.16, z: 245.77}
+  m_LocalPosition: {x: 163.42, y: 30.060001, z: 233.24}
   m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -818,7 +818,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 163.42, y: 29.16, z: 245.77}
+  m_LocalPosition: {x: 163.42, y: 30.060001, z: 233.24}
   m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -934,7 +934,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 710, y: 125}
+  m_AnchoredPosition: {x: 760, y: 125}
   m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &351535810
@@ -1062,11 +1062,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1765798523753042638, guid: 79baf5d2821680245b59f09ab3261160, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 18.8
+      value: 19.7
       objectReference: {fileID: 0}
     - target: {fileID: 1765798523753042638, guid: 79baf5d2821680245b59f09ab3261160, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 245.53
+      value: 233
       objectReference: {fileID: 0}
     - target: {fileID: 1765798523753042638, guid: 79baf5d2821680245b59f09ab3261160, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1390,7 +1390,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PowerPadParticles: {fileID: 0}
-  powerOrb: {fileID: 0}
+  powerOrb: {fileID: 1762746769}
   orbOffset: {x: 0, y: 20, z: 0}
   cooldown: 5
   speedBoostColor: {r: 0, g: 1, b: 1, a: 1}
