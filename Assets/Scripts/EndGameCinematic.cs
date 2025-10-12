@@ -73,11 +73,12 @@ public class EndGameCinematic : MonoBehaviour
 
         string[] lines = new string[]
         {
-            "The dust settles…",
-            "The outlaw falls.",
-            "Peace returns to the town.",
-            "Congratulations, Sheriff.",
-            "You’ve beaten the final boss and completed the game."
+            "THE DUST SETTLES...",
+            "THE OUTLAW FALLS",
+            "YOU'VE BEATEN THE BOSS \nAND\nCOMPLETED THE GAME",
+            "CONGRATULATIONS SHERIFF",
+            "THE WEST IS YOURS"
+
         };
 
         foreach (string line in lines)
@@ -92,12 +93,7 @@ public class EndGameCinematic : MonoBehaviour
         yield return StartCoroutine(FadeInText("Thank you for playing.", textFadeDuration));
         yield return new WaitForSeconds(finalHoldDuration);
 
-        // optional scene transition
-        if (autoLoadScene && !string.IsNullOrEmpty(sceneToLoad))
-        {
-            yield return new WaitForSeconds(delayBeforeLoad);
-            SceneManager.LoadScene(sceneToLoad);
-        }
+      
     }
 
     IEnumerator FadeImageAlpha(Image img, float from, float to, float duration)
