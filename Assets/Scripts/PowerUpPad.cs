@@ -17,7 +17,7 @@ public class PowerUpPad : MonoBehaviour
 
     [Header("Orb Settings")]
     public GameObject powerOrb;
-    public Vector3 orbOffset = new Vector3(0, 1.2f, 0);
+    public Vector3 orbOffset = new Vector3(0, 2.0f, 0);
 
     [Header("Cooldown Settings")]
     public float cooldown = 5f;
