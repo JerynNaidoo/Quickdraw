@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Boss : MonoBehaviour
 {
@@ -12,9 +13,18 @@ public class Boss : MonoBehaviour
 
     public EndGameCinematic endCinematic;
 
+    private Transform player;
+    private NavMeshAgent agent;
+    private Animator animator;
+
+
     private void Awake()
     {
         currentHealth = maxHealth;
+        if (player == null)
+            player = GameObject.Find("Player")?.transform;
+        agent = GetComponent<NavMeshAgent>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     /// <summary>
@@ -32,6 +42,46 @@ public class Boss : MonoBehaviour
             Die();
         }
     }
+
+
+    private void Update()
+    {
+        if (player == null)
+        {
+            player = GameObject.FindWithTag("Player")?.transform;
+            if (player == null)
+                return; // still not found, skip movement this frame
+        }
+
+        if (!isDead && agent != null && agent.isOnNavMesh)
+            agent.SetDestination(player.position);
+    }
+
+    //private void ChasePlayer()
+    //{
+    //    if (player == null)
+    //    {
+    //        Debug.LogWarning("No player found!");
+    //        return;
+    //    }
+
+    //    if (agent == null)
+    //    {
+    //        Debug.LogWarning("No NavMeshAgent found!");
+    //        return;
+    //    }
+
+    //    if (!agent.isOnNavMesh)
+    //    {
+    //        Debug.LogWarning("Boss is not on NavMesh!");
+    //        return;
+    //    }
+    //    if (player != null && agent != null && agent.enabled && agent.isOnNavMesh)
+    //    {
+    //        agent.SetDestination(player.position);
+    //    }
+    //}
+
 
     private void Die()
     {

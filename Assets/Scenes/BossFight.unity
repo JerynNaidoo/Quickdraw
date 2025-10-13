@@ -3750,9 +3750,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 7b4703a7b60f8f847804494944ad4eb6, type: 2}
     - target: {fileID: 4528709181124677507, guid: 078e84f4ca1305e42abde009ee535ab1, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: de8f81d4f9e6a7c4e80fd3ec539d0489, type: 3}
+    - target: {fileID: 4528709181124677507, guid: 078e84f4ca1305e42abde009ee535ab1, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 7b9d457f72c0a584eb027c12ce8ce9c2, type: 2}
+      objectReference: {fileID: 9100000, guid: 099e1bbfba2f2fa479b858e4fd5fa021, type: 2}
     - target: {fileID: 7166011481047240515, guid: 078e84f4ca1305e42abde009ee535ab1, type: 3}
       propertyPath: m_Name
       value: Taunt
