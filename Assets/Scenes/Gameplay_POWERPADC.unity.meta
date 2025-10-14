@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/Gameplay_POWERPADC.unity.meta
 guid: c87731be18402c14eb1b8503d20f5ad6
+========
+guid: fe3165d6500d73948be38aedf5b7cdfa
+folderAsset: yes
+>>>>>>>> ed8f1451e652ef23084c762a5718c39922bdb82b:Assets/Animations/Boss.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
