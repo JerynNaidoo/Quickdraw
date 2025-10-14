@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections; 
 
 public class Enemy : MonoBehaviour
 {
@@ -120,6 +121,13 @@ public class Enemy : MonoBehaviour
             lastDamageTime = Time.time;
 
             animator.SetBool("canAttack", true);
+            StartCoroutine(ResetAttackAfterDelay(2f));
         }
+    }
+
+    private IEnumerator ResetAttackAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay); 
+        animator.SetBool("canAttack", false);
     }
 }
