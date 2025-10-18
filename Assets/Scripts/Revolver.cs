@@ -64,7 +64,7 @@ public class Revolver : MonoBehaviour
         int needed = maxAmmo - currentAmmo;          // bullets required to fill cylinder
         int bulletsToLoad = Mathf.Min(needed, reserveAmmo); // load only what's available
 
-        pistolAnimator.Play("ReloadRevolver");
+        pistolAnimator.Play("ReloadRevolver_1");
         currentAmmo += bulletsToLoad;
         reserveAmmo -= bulletsToLoad;
 
