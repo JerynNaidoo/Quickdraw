@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour
     [Header("Enemy Settings")]
     public GameObject enemyPrefab;       // Enemy prefab
     public TextMeshProUGUI enemyCountText;
-    public TextMeshProUGUI waveNumber; 
+    public TextMeshProUGUI waveNumber;
 
     [Header("Spawn Settings")]
     public Transform[] spawnPoints;      // Spawn locations
@@ -78,23 +78,16 @@ public class EnemySpawner : MonoBehaviour
             if (currentWave < totalWaves && endFight != null)
             {
                 yield return StartCoroutine(ShowWaveClearedAndCountdown(currentWave, waveInterval));
-                //endFight.ShowMessage($"Wave cleared! Next wave in {waveInterval} seconds...");
-                //yield return new WaitForSeconds(waveInterval);
-                //endFight.Hide();
             }
-
-            
         }
+
+        // Trigger final battle
         if (!finalBattleTriggered)
         {
             finalBattleTriggered = true;
             StartCoroutine(TriggerFinalBattleSequence());
         }
-
-        // Trigger final battle
-
     }
-
 
     private IEnumerator ShowWaveClearedAndCountdown(int wave, float seconds)
     {
@@ -112,7 +105,6 @@ public class EnemySpawner : MonoBehaviour
             endFight.Hide();
         }
     }
-
 
     private void SpawnEnemy(int wave)
     {
@@ -170,32 +162,34 @@ public class EnemySpawner : MonoBehaviour
     private IEnumerator TriggerFinalBattleSequence()
     {
         Debug.Log("Starting final battle cinematic...");
-        //yield return new WaitForSeconds(1f);
 
-        //// Play cinematic
-        //if (endFight != null)
-        //{
-        //    StartCoroutine(endFight.PlayFinalSequence());
-        //}
-        //else
-        //{
-        //    Debug.LogWarning("EndFight reference not assigned!");
-        //}
-
-        //// Move player to final battle position
-        //if (player != null)
-        //{
-        //    player.position = finalBattlePosition;
-        //    Debug.Log($"Player moved to final battle arena at {finalBattlePosition}");
-        //}
-
-
-        yield return StartCoroutine(endFight.PlayFinalSequence());
-        if (player != null)
+        if (endFight != null)
         {
-            player.position = finalBattlePosition;
-            Debug.Log($"Player moved to final battle arena at {finalBattlePosition}");
+            yield return StartCoroutine(endFight.PlayFinalSequence());
         }
 
+        //yield return new WaitForSeconds(0.5f);
+
+        if (player != null)
+        {
+            CharacterController controller = player.GetComponent<CharacterController>();
+
+            if (controller != null)
+            {
+                controller.enabled = false; 
+                player.position = finalBattlePosition;
+                controller.enabled = true; 
+            }
+            else
+            {
+                player.position = finalBattlePosition;
+            }
+
+            Debug.Log($"Player teleported to FINAL BATTLE position: {finalBattlePosition}");
+        }
+        else
+        {
+            Debug.LogWarning("Player reference missing — cannot move to final battle position!");
+        }
     }
 }

@@ -25,7 +25,8 @@ public class GameOverManager : MonoBehaviour
         SceneManager.LoadScene("Environment", LoadSceneMode.Additive);
         SceneManager.LoadScene("Gameplay", LoadSceneMode.Additive);
         SceneManager.LoadScene("PlayerHUD", LoadSceneMode.Additive);
-       // SceneManager.LoadScene("Loader");
+        //SceneManager.LoadScene("Loader");
+        SceneManager.LoadScene("BossFight", LoadSceneMode.Additive);
     }
 
     public void QuitGame()
