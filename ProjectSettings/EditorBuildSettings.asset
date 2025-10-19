@@ -9,23 +9,29 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
+    path: Assets/Scenes/StartScreenScene.unity
+    guid: d9a96660309c0e64a914ffaa52ef07ae
+  - enabled: 1
     path: Assets/Scenes/MasterScene.unity
     guid: ed8af5b4fd31e8443aba8268bb7a1af0
   - enabled: 1
     path: Assets/Scenes/Enviroment.unity
     guid: 57ec3792cea9e2b4a936f0f205b8979d
   - enabled: 1
-    path: Assets/Scenes/Gameplay.unity
+    path: Assets/Scenes/Gameplay_Ryan.unity
     guid: da2eed8e98bca244e94a992eb4d885c5
   - enabled: 1
     path: Assets/Scenes/PlayerHUD.unity
     guid: 0e4c0039782f7bd458629e078d81bfbe
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ModelledEnemy.unity
     guid: 43549909763859148a8cdf6ca9407319
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Enemy.unity
     guid: c4117dc37997e9b43adddc06bce5c709
+  - enabled: 1
+    path: Assets/Scenes/BossFight.unity
+    guid: cbc09c537bcb6b44c9f12d914f2daafc
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

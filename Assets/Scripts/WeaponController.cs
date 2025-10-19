@@ -19,11 +19,11 @@ public class WeaponController : MonoBehaviour
 
     private float nextTimeToFire = 0f; // Keeps track of cooldown between shots
     [SerializeField] private GameObject bloodEffectPrefab;
-    private Animator pistolAnimator; // animator component, will be used to check animation states
+    private Animator playerAnimator; // animator component, will be used to check animation states
 
     private void Awake()
     {
-        pistolAnimator = pistol.GetComponent<Animator>();
+        playerAnimator = player.GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -54,14 +54,14 @@ public class WeaponController : MonoBehaviour
 
     private bool IsIdle()
     {
-        AnimatorStateInfo stateInfo = pistolAnimator.GetCurrentAnimatorStateInfo(0);
+        AnimatorStateInfo stateInfo = playerAnimator.GetCurrentAnimatorStateInfo(0);
         return stateInfo.IsName("Idle");
     }
 
     private void Shoot()
     {
         // Play firing sound and animation
-        pistolAnimator.Play("ShootRevolver");
+        playerAnimator.Play("ShootRevolver_1");
         // Play firing sound
         pistolFire.Play();
 

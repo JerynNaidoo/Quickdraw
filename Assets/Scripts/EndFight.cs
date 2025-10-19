@@ -10,7 +10,7 @@ public class EndFight : MonoBehaviour
     public GameObject blackPanelObject;   // Panel GameObject
     public Image blackPanel;              // Optional: Image for fading
     public TextMeshProUGUI cinematicText; // Text for cinematic sequences
-    public TextMeshProUGUI messageText;   // Optional: Text for ShowMessage/Hide
+    public TextMeshProUGUI messageText;   // For ShowMessage/Hide
 
     [Header("Timing Settings")]
     public float panelFadeDuration = 1.2f;
@@ -27,6 +27,8 @@ public class EndFight : MonoBehaviour
     public float delayBeforeLoad = 4f;
 
     private float originalFontSize;
+
+
 
     private void Start()
     {
@@ -46,19 +48,17 @@ public class EndFight : MonoBehaviour
         }
 
         if (blackPanelObject != null)
-        {
             blackPanelObject.SetActive(false);
-        }
     }
 
     public IEnumerator PlayFinalSequence()
     {
+
         if (messageText != null)
             messageText.text = "";
 
         if (blackPanelObject != null)
             blackPanelObject.SetActive(true);
-
 
         Debug.Log("Final EndFight cinematic started...");
 
@@ -70,7 +70,7 @@ public class EndFight : MonoBehaviour
         string[] lines = new string[]
         {
             "YOU PROVED WORTHY OF A THREAT",
-            "THE BOSS HEARD THE COMMOTIION, \nHE'S WAITING FOR YOU...",
+            "THE BOSS HEARD THE COMMOTION, \nHE'S WAITING FOR YOU...",
             "THIS TOWN AIN'T BIG ENOUGH \nFOR THE TWO OF YOU"
         };
 
@@ -94,6 +94,7 @@ public class EndFight : MonoBehaviour
         if (blackPanelObject != null)
             blackPanelObject.SetActive(false);
 
+        
     }
 
     private IEnumerator FadeImageAlpha(Image img, float from, float to, float duration)
@@ -164,7 +165,6 @@ public class EndFight : MonoBehaviour
         cinematicText.color = c;
     }
 
-    // ---------------- ShowMessage / Hide ----------------
     public void ShowMessage(string message)
     {
         if (blackPanelObject != null)
@@ -181,6 +181,5 @@ public class EndFight : MonoBehaviour
 
         if (messageText != null)
             messageText.text = "";
-
     }
 }

@@ -1,14 +1,14 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.AI;
 using TMPro;
 using System.Collections;
 
-public class EnemySpawner : MonoBehaviour
+public class BossEnemySpawner : MonoBehaviour
 {
     [Header("Enemy Settings")]
     public GameObject enemyPrefab;       // Enemy prefab
-    public TextMeshProUGUI enemyCountText;
-    public TextMeshProUGUI waveNumber;
+    //public TextMeshProUGUI enemyCountText;
+    //public TextMeshProUGUI waveNumber;
 
     [Header("Spawn Settings")]
     public Transform[] spawnPoints;      // Spawn locations
@@ -20,9 +20,9 @@ public class EnemySpawner : MonoBehaviour
     public int enemiesInFirstWave = 2;   // Starting enemies per wave
     public float waveInterval = 15f;     // Delay between waves
 
-    [Header("Final Battle Settings")]
-    public EndFight endFight;            // Cinematic system
-    public Vector3 finalBattlePosition;  // Player position for final battle
+    //[Header("Final Battle Settings")]
+    //public EndFight endFight;            // Cinematic system
+    //public Vector3 finalBattlePosition;  // Player position for final battle
 
     [Header("Difficulty Scaling")]
     public float enemyHealthIncrease = 20f; // Extra HP per wave
@@ -40,26 +40,28 @@ public class EnemySpawner : MonoBehaviour
         waveCoroutine = StartCoroutine(WaveRoutine());
     }
 
+
+
     private IEnumerator WaveRoutine()
     {
         yield return new WaitForSeconds(2f); // Initial delay
-        UpdateWaveCountDisplay();
+        //UpdateWaveCountDisplay();
 
         while (currentWave < totalWaves)
         {
             currentWave++;
-            UpdateWaveCountDisplay();
+            //UpdateWaveCountDisplay();
             int enemiesToSpawn = enemiesInFirstWave + (currentWave - 1) * 3;
 
             Debug.Log($"--- Wave {currentWave}/{totalWaves} ({enemiesToSpawn} enemies) ---");
 
             // Show wave start message
-            if (endFight != null && currentWave == 1)
-            {
-                endFight.ShowMessage($"Waves of outlaws incoming!");
-                yield return new WaitForSeconds(2f);
-                endFight.Hide();
-            }
+            //if (endFight != null && currentWave == 1)
+            //{
+            //    endFight.ShowMessage($"Waves of outlaws incoming!");
+            //    yield return new WaitForSeconds(2f);
+            //    endFight.Hide();
+            //}
 
             // Spawn enemies
             for (int i = 0; i < enemiesToSpawn; i++)
@@ -75,36 +77,36 @@ public class EnemySpawner : MonoBehaviour
             Debug.Log($"Wave {currentWave} cleared!");
 
             // Show wave cleared message except for final wave
-            if (currentWave < totalWaves && endFight != null)
-            {
-                yield return StartCoroutine(ShowWaveClearedAndCountdown(currentWave, waveInterval));
-            }
+            //if (currentWave < totalWaves && endFight != null)
+            //{
+            //    yield return StartCoroutine(ShowWaveClearedAndCountdown(currentWave, waveInterval));
+            //}
         }
 
         // Trigger final battle
-        if (!finalBattleTriggered)
-        {
-            finalBattleTriggered = true;
-            StartCoroutine(TriggerFinalBattleSequence());
-        }
+        //if (!finalBattleTriggered)
+        //{
+        //    finalBattleTriggered = true;
+        //    StartCoroutine(TriggerFinalBattleSequence());
+        //}
     }
 
-    private IEnumerator ShowWaveClearedAndCountdown(int wave, float seconds)
-    {
-        if (endFight != null)
-        {
-            endFight.ShowMessage($"Wave Cleared!");
-            yield return new WaitForSeconds(1.0f);
+    //private IEnumerator ShowWaveClearedAndCountdown(int wave, float seconds)
+    //{
+    //    if (endFight != null)
+    //    {
+    //        endFight.ShowMessage($"Wave Cleared!");
+    //        yield return new WaitForSeconds(1.0f);
 
-            for (int i = (int)seconds; i > 0; i--)
-            {
-                endFight.ShowMessage($"Next wave incoming in {i} seconds...");
-                yield return new WaitForSeconds(1f);
-            }
+    //        for (int i = (int)seconds; i > 0; i--)
+    //        {
+    //            endFight.ShowMessage($"Next wave incoming in {i} seconds...");
+    //            yield return new WaitForSeconds(1f);
+    //        }
 
-            endFight.Hide();
-        }
-    }
+    //        endFight.Hide();
+    //    }
+    //}
 
     private void SpawnEnemy(int wave)
     {
@@ -134,7 +136,7 @@ public class EnemySpawner : MonoBehaviour
         }
 
         enemiesAlive++;
-        UpdateEnemyCountDisplay();
+        //UpdateEnemyCountDisplay();
 
         Debug.Log($"Spawned enemy. Enemies alive: {enemiesAlive}");
     }
@@ -143,53 +145,53 @@ public class EnemySpawner : MonoBehaviour
     public void EnemyDied()
     {
         enemiesAlive = Mathf.Max(0, enemiesAlive - 1);
-        UpdateEnemyCountDisplay();
+        //UpdateEnemyCountDisplay();
         Debug.Log($"Enemy died! Enemies alive: {enemiesAlive}");
     }
 
-    private void UpdateEnemyCountDisplay()
-    {
-        if (enemyCountText != null)
-            enemyCountText.text = $"Enemies: {Mathf.Max(enemiesAlive, 0)}";
-    }
+    //private void UpdateEnemyCountDisplay()
+    //{
+    //    if (enemyCountText != null)
+    //        enemyCountText.text = $"Enemies: {Mathf.Max(enemiesAlive, 0)}";
+    //}
 
-    private void UpdateWaveCountDisplay()
-    {
-        if (waveNumber != null)
-            waveNumber.text = $"Wave: {currentWave}";
-    }
+    //private void UpdateWaveCountDisplay()
+    //{
+    //    if (waveNumber != null)
+    //        waveNumber.text = $"Wave: {currentWave}";
+    //}
 
-    private IEnumerator TriggerFinalBattleSequence()
-    {
-        Debug.Log("Starting final battle cinematic...");
+    //private IEnumerator TriggerFinalBattleSequence()
+    //{
+    //    Debug.Log("Starting final battle cinematic...");
 
-        if (endFight != null)
-        {
-            yield return StartCoroutine(endFight.PlayFinalSequence());
-        }
+    //    if (endFight != null)
+    //    {
+    //        yield return StartCoroutine(endFight.PlayFinalSequence());
+    //    }
 
-        //yield return new WaitForSeconds(0.5f);
+    //    //yield return new WaitForSeconds(0.5f);
 
-        if (player != null)
-        {
-            CharacterController controller = player.GetComponent<CharacterController>();
+    //    if (player != null)
+    //    {
+    //        CharacterController controller = player.GetComponent<CharacterController>();
 
-            if (controller != null)
-            {
-                controller.enabled = false; 
-                player.position = finalBattlePosition;
-                controller.enabled = true; 
-            }
-            else
-            {
-                player.position = finalBattlePosition;
-            }
+    //        if (controller != null)
+    //        {
+    //            controller.enabled = false;
+    //            player.position = finalBattlePosition;
+    //            controller.enabled = true;
+    //        }
+    //        else
+    //        {
+    //            player.position = finalBattlePosition;
+    //        }
 
-            Debug.Log($"Player teleported to FINAL BATTLE position: {finalBattlePosition}");
-        }
-        else
-        {
-            Debug.LogWarning("Player reference missing — cannot move to final battle position!");
-        }
-    }
+    //        Debug.Log($"Player teleported to FINAL BATTLE position: {finalBattlePosition}");
+    //    }
+    //    else
+    //    {
+    //        Debug.LogWarning("Player reference missing � cannot move to final battle position!");
+    //    }
+    //}
 }

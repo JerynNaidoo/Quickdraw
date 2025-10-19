@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -24,11 +24,19 @@ public class Enemy : MonoBehaviour
 
     private Animator animator;
 
-    
+    // Diagnostics / auto-resolve
+    private int lastLoggedFrame = -1;
+    private float lastLogTime = -10f;
+    [SerializeField] private float logIntervalSec = 0.5f;
+    private Vector3 lastObservedPlayerPos = Vector3.positiveInfinity;
+    private int lastObservedPlayerInstanceId = -1;
+    [SerializeField] private int stalePositionFrameThreshold = 30; // frames before we warn a position seems stale
+    private int framesWithSamePlayerPos = 0;
+
     private void Awake()
     {
         if (player == null)
-            player = GameObject.Find("PlayerCowboy")?.transform;
+            player = GameObject.FindWithTag("Player")?.transform;
 
         agent = GetComponent<NavMeshAgent>();
 
@@ -49,12 +57,61 @@ public class Enemy : MonoBehaviour
                                           RigidbodyConstraints.FreezeRotationZ;
             }
         }
+
+        if (player != null)
+        {
+            lastObservedPlayerPos = player.position;
+            lastObservedPlayerInstanceId = player.gameObject.GetInstanceID();
+        }
     }
 
     private void Update()
     {
+        // Auto-resolve if player reference was replaced in the scene
+        Transform fresh = GameObject.FindWithTag("Player")?.transform;
+        if (fresh != null && player != fresh)
+        {
+            //Debug.Log($"[Enemy:{name}] Detected different Player instance. Reassigning player from id {lastObservedPlayerInstanceId} to id {fresh.gameObject.GetInstanceID()} (name '{fresh.name}').");
+            player = fresh;
+            lastObservedPlayerPos = player.position;
+            lastObservedPlayerInstanceId = player.gameObject.GetInstanceID();
+            framesWithSamePlayerPos = 0;
+        }
+
         if (!isDead)
             ChasePlayer();
+
+        // Throttled diagnostic showing exact instance and frame
+        if (player != null && Time.unscaledTime - lastLogTime > logIntervalSec)
+        {
+            int curInstance = player.gameObject.GetInstanceID();
+            Vector3 curPos = player.position;
+            int frame = Time.frameCount;
+            //Debug.Log($"[Enemy:{name}] player.position={curPos} (player.name='{player.name}', id={curInstance}) frame={frame} time={Time.time:F2}s agent.isOnNavMesh={(agent != null ? agent.isOnNavMesh : false)}");
+
+            // detect stale referenced Transform (position not changing on the referenced Transform)
+            if (curPos == lastObservedPlayerPos)
+            {
+                framesWithSamePlayerPos++;
+                if (framesWithSamePlayerPos > stalePositionFrameThreshold)
+                {
+                    //Debug.LogWarning($"[Enemy:{name}] Player Transform (id={curInstance}) position unchanged for {framesWithSamePlayerPos} frames — may be a stale/incorrect Transform reference (child/camera) or player is being moved elsewhere. Resolved player.root='{player.root.name}' active={player.gameObject.activeInHierarchy}.");
+                }
+            }
+            else
+            {
+                framesWithSamePlayerPos = 0;
+            }
+
+            lastObservedPlayerPos = curPos;
+            lastObservedPlayerInstanceId = curInstance;
+            lastLogTime = Time.unscaledTime;
+            lastLoggedFrame = frame;
+        }
+
+        // Visual debug: draw line to the currently referenced Transform
+        if (player != null)
+            Debug.DrawLine(transform.position, player.position, Color.red, 0.1f);
     }
 
     private void ChasePlayer()
@@ -71,8 +128,6 @@ public class Enemy : MonoBehaviour
 
         currentHealth -= amount;
         Debug.Log($"{gameObject.name} took {amount} damage. Remaining HP: {currentHealth}");
-
-        
 
         if (currentHealth <= 0f)
         {
@@ -123,8 +178,11 @@ public class Enemy : MonoBehaviour
 
             lastDamageTime = Time.time;
 
-            animator.SetBool("canAttack", true);
-            StartCoroutine(ResetAttackAfterDelay(2f));
+            if (animator != null)
+            {
+                animator.SetBool("canAttack", true);
+                StartCoroutine(ResetAttackAfterDelay(2f));
+            }
         }
     }
 
@@ -132,7 +190,7 @@ public class Enemy : MonoBehaviour
     {
         //Debug.Log("Coroutine started: will reset attack in " + delay + " seconds");
         yield return new WaitForSeconds(delay);
-        animator.SetBool("canAttack", false);
+        if (animator != null) animator.SetBool("canAttack", false);
         //Debug.Log("canAttack reset to false");
     }
 
