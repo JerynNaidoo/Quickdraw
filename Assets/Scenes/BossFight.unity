@@ -1247,7 +1247,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 2193
+  m_TextStyleHashCode: 97690656
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -3742,15 +3742,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2349299708060121385, guid: 078e84f4ca1305e42abde009ee535ab1, type: 3}
       propertyPath: m_LocalScale.x
-      value: 50
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 2349299708060121385, guid: 078e84f4ca1305e42abde009ee535ab1, type: 3}
       propertyPath: m_LocalScale.y
-      value: 50
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 2349299708060121385, guid: 078e84f4ca1305e42abde009ee535ab1, type: 3}
       propertyPath: m_LocalScale.z
-      value: 50
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 2349299708060121385, guid: 078e84f4ca1305e42abde009ee535ab1, type: 3}
       propertyPath: m_LocalPosition.x

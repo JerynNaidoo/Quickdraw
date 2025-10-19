@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Enviroment.unity
     guid: 57ec3792cea9e2b4a936f0f205b8979d
   - enabled: 1
-    path: Assets/Scenes/Gameplay.unity
+    path: Assets/Scenes/Gameplay_Ryan.unity
     guid: da2eed8e98bca244e94a992eb4d885c5
   - enabled: 1
     path: Assets/Scenes/PlayerHUD.unity
