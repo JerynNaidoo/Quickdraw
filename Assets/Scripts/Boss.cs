@@ -109,7 +109,7 @@ public class Boss : MonoBehaviour
         if (other.CompareTag("Player") && Time.time - lastDamageTime > damageCooldown)
         {
             // Damage the player (replace this with your own health system)
-            Debug.Log("Boss OnTriggerEnter with Player");
+            //Debug.Log("Boss OnTriggerEnter with Player");
 
             HealthBarManager health = Object.FindFirstObjectByType<HealthBarManager>();
             if (health != null)
@@ -117,7 +117,7 @@ public class Boss : MonoBehaviour
 
             lastDamageTime = Time.time;
 
-            Debug.Log("Setting canAttack to true");
+            //Debug.Log("Setting canAttack to true");
 
             animator.SetBool("canAttack", true);
             StartCoroutine(ResetAttackAfterDelay(2f));
