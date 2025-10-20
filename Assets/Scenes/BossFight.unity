@@ -198,6 +198,10 @@ MonoBehaviour:
   despawnTime: 2
   endCinematic: {fileID: 1799924517}
   damageCooldown: 1
+  dynamitePrefab: {fileID: 4056876878510537022, guid: 4eae925884b1235468771e6f8f604fb0, type: 3}
+  throwPoint: {fileID: 1267949466}
+  throwForce: 12
+  throwCooldown: 15
 --- !u!54 &268408590
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1777,9 +1781,9 @@ MonoBehaviour:
   - {fileID: 203550648}
   player: {fileID: 5704304856628857659, guid: 16e1ad69c89d0ca418e848a64be095ab, type: 3}
   spawnInterval: 0.5
-  totalWaves: 99
-  enemiesInFirstWave: 10
-  waveInterval: 15
+  totalWaves: 0
+  enemiesInFirstWave: 0
+  waveInterval: 0
   enemyHealthIncrease: 20
 --- !u!1001 &997615198
 PrefabInstance:
@@ -2463,6 +2467,11 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!4 &1267949466 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4514144030284357898, guid: 078e84f4ca1305e42abde009ee535ab1, type: 3}
+  m_PrefabInstance: {fileID: 8174588979199758307}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1305527193 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5371514317076852718, guid: 5fa8cd60bf5e0d749bf695cac04c1269, type: 3}
@@ -4007,7 +4016,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2349299708060121385, guid: 078e84f4ca1305e42abde009ee535ab1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10
+      value: 9.7
       objectReference: {fileID: 0}
     - target: {fileID: 2349299708060121385, guid: 078e84f4ca1305e42abde009ee535ab1, type: 3}
       propertyPath: m_LocalPosition.z
