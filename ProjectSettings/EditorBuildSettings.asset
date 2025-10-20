@@ -10,7 +10,7 @@ EditorBuildSettings:
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
     path: Assets/Scenes/StartScreenScene.unity
-    guid: d9a96660309c0e64a914ffaa52ef07ae
+    guid: 3e6a4ed55c40eba46aee33e0aea2f47a
   - enabled: 1
     path: Assets/Scenes/MasterScene.unity
     guid: ed8af5b4fd31e8443aba8268bb7a1af0
@@ -18,11 +18,17 @@ EditorBuildSettings:
     path: Assets/Scenes/Enviroment.unity
     guid: 57ec3792cea9e2b4a936f0f205b8979d
   - enabled: 1
+    path: Assets/Scenes/Gameplay.unity
+    guid: 7dd846609cc97b247985cf6e959d8e32
+  - enabled: 0
     path: Assets/Scenes/Gameplay_Ryan.unity
     guid: da2eed8e98bca244e94a992eb4d885c5
   - enabled: 1
     path: Assets/Scenes/PlayerHUD.unity
     guid: 0e4c0039782f7bd458629e078d81bfbe
+  - enabled: 1
+    path: Assets/Scenes/PauseMenuScene.unity
+    guid: 629c145544ec1b746a313180d808a60c
   - enabled: 0
     path: Assets/Scenes/ModelledEnemy.unity
     guid: 43549909763859148a8cdf6ca9407319
