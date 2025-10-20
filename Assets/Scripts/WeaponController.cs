@@ -41,7 +41,7 @@ public class WeaponController : MonoBehaviour
     private void OnFire(InputAction.CallbackContext context)
     {
         // Fire Rate limiting, can  only shoot if gun is idle and shot cooldown has passed
-        if (Time.time >= nextTimeToFire && IsIdle())
+        if (Time.time >= nextTimeToFire && IsIdle() && !PauseMenu.isPaused)
         {
             if (revolver != null && revolver.CanShoot())
             {

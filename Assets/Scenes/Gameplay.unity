@@ -1117,7 +1117,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 50
   gravity: -9.81
-  jumpHeight: 2
   lookSensitivity: 2
   maxLookX: 80
   minLookX: -80
@@ -7799,6 +7798,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 695171537541744534, guid: 3f98d3e1677f3c34a89590e1af6b834f, type: 3}
+      propertyPath: m_Volume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 695171537541744534, guid: 3f98d3e1677f3c34a89590e1af6b834f, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 2388183468149217135, guid: 4d9fc7bdc0919d8489b9b5b895ec5eba, type: 2}
     - target: {fileID: 2186586474052152134, guid: 3f98d3e1677f3c34a89590e1af6b834f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 143

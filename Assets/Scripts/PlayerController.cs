@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     [Header("Movement Settings")]
     public float speed = 5f;
     public float gravity = -9.81f;
-    public float jumpHeight = 2f;
+    //public float jumpHeight = 2f;
 
     [Header("Look Settings")]
     public float lookSensitivity = 2f;
@@ -34,12 +34,23 @@ public class PlayerController : MonoBehaviour
         playerCamera = Camera.main;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        // Load sensitivity setting
+        lookSensitivity = PlayerPrefs.GetFloat("lookSensitivity", 0.5f);
+    }
+
+    public void UpdateSensitivity(float newSensitivity)
+    {
+        lookSensitivity = newSensitivity;
     }
 
     private void Update()
     {
-        HandleMovement();
-        HandleLook();
+        if (!PauseMenu.isPaused)
+        {
+            HandleMovement();
+            HandleLook();
+        }
     }
 
     void HandleMovement()
@@ -69,55 +80,6 @@ public class PlayerController : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
-
-    //void HandleLook()
-    //{
-    //    // Mouse input
-    //    Vector2 mouseDelta = Mouse.current.delta.ReadValue() * lookSensitivity;
-    //    rotationX -= mouseDelta.y;
-    //    rotationY += mouseDelta.x;
-    //    // Clamp vertical rotation
-    //    rotationX = Mathf.Clamp(rotationX, minLookX, maxLookX);
-
-    //    // Create the camera rotation
-    //    Quaternion cameraRotation = Quaternion.Euler(rotationX, 0f, 0f);
-
-    //    // Apply vertical rotation to camera only
-    //    playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0f, 0f);
-
-    //    // Rotate player (yaw)
-    //    transform.rotation = Quaternion.Euler(0f, rotationY, 0f);
-
-    //    // Ensure player model faces same yaw direction as player
-    //    if (playerModel != null)
-    //    {
-    //        playerModel.transform.rotation = Quaternion.Euler(0f, rotationY, 0f);
-    //    }
-
-    //    // Rotate player left/right
-    //    transform.rotation = Quaternion.Euler(0f, rotationY, 0f);
-    //}
-
-    //void HandleLook()
-    //{
-    //    Vector2 mouseDelta = Mouse.current.delta.ReadValue() * lookSensitivity;
-
-    //    rotationX -= mouseDelta.y;
-    //    rotationY += mouseDelta.x;
-
-    //    // Clamp pitch
-    //    rotationX = Mathf.Clamp(rotationX, minLookX, maxLookX);
-
-    //    // Apply vertical rotation (pitch) to camera only
-    //    playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0f, 0f);
-
-    //    // Apply horizontal rotation (yaw) to player body
-    //    transform.rotation = Quaternion.Euler(0f, rotationY, 0f);
-
-    //    // Force player model to always match body yaw (no camera pitch)
-    //    if (playerModel != null)
-    //        playerModel.transform.rotation = Quaternion.Euler(0f, rotationY, 0f);
-    //}
 
     void HandleLook()
     {

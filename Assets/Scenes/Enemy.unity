@@ -256,7 +256,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1900942929}
   - component: {fileID: 1900942928}
-  - component: {fileID: 1900942930}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -277,18 +276,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 1552522038857799548, guid: 0335efb5cc7af65419af83c1ec624832, type: 3}
-  maxEnemies: 10
-  currentEnemies: 0
   enemyCountText: {fileID: 0}
-  spawnInterval: 3
+  waveNumber: {fileID: 0}
   spawnPoints:
   - {fileID: 407880995}
   - {fileID: 947916329}
   - {fileID: 1207509232}
   player: {fileID: 1765798523753042638, guid: 79baf5d2821680245b59f09ab3261160, type: 3}
-  endScreen: {fileID: 0}
+  spawnInterval: 3
+  totalWaves: 3
+  enemiesInFirstWave: 2
+  waveInterval: 15
+  endFight: {fileID: 0}
   finalBattlePosition: {x: 0, y: 0, z: 0}
-  killsRequiredForFinal: 10
+  enemyHealthIncrease: 20
 --- !u!4 &1900942929
 Transform:
   m_ObjectHideFlags: 0
@@ -304,18 +305,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1900942930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1900942927}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad160f7b88b21da4ab1978c2f0ec3b36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

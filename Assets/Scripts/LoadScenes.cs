@@ -9,6 +9,8 @@ public class StartScreen : MonoBehaviour
     [Header("Scenes to Load")]
     public string[] scenesToLoad; // List of scene names
     public GameObject startScreenCanvas;
+    public GameObject eventSystem;
+
     [Header("Optional Delay")]
     public float fadeDuration = 1f; // If you want a fade
 
@@ -19,6 +21,8 @@ public class StartScreen : MonoBehaviour
 
     private IEnumerator LoadScenes()
     {
+        if (eventSystem != null)
+            Destroy(eventSystem.gameObject);
         foreach (string sceneName in scenesToLoad)
         {
             if (!SceneManager.GetSceneByName(sceneName).isLoaded)

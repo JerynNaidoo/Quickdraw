@@ -22,9 +22,10 @@ public class GameOverManager : MonoBehaviour
         if (hbm != null) hbm.ResetHealth();
 
         SceneManager.LoadScene("MasterScene", LoadSceneMode.Single);
-        SceneManager.LoadScene("Environment", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Enviroment", LoadSceneMode.Additive);
         SceneManager.LoadScene("Gameplay", LoadSceneMode.Additive);
         SceneManager.LoadScene("PlayerHUD", LoadSceneMode.Additive);
+        SceneManager.LoadScene("PauseMenuScene", LoadSceneMode.Additive);
         //SceneManager.LoadScene("Loader");
         SceneManager.LoadScene("BossFight", LoadSceneMode.Additive);
     }
