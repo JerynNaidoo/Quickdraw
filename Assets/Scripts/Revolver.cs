@@ -4,11 +4,12 @@ using TMPro;
 public class Revolver : MonoBehaviour
 {
     [Header("Ammo Settings")]
-    public int maxAmmo = 6;          // revolver cylinder size
-    public int currentAmmo;          // ammo in cylinder
-    public int reserveAmmo = 30;     // total spare bullets (not including cylinder)
-    [SerializeField] private GameObject player;  // hold reference to player to get animator
+    public int maxAmmo = 6;          // Revolver cylinder size
+    public int currentAmmo;          // Ammo in cylinder
+    public int reserveAmmo = 24;     // Total spare bullets (not including cylinder)
 
+    [SerializeField]
+    private GameObject player;       // Reference to player (for animator)
     private Animator pistolAnimator;
 
     [Header("References")]
@@ -16,19 +17,21 @@ public class Revolver : MonoBehaviour
 
     void Start()
     {
-        currentAmmo = maxAmmo; // start full
+        currentAmmo = maxAmmo; // Start with a full cylinder
         UpdateAmmoUI();
+
         pistolAnimator = player.GetComponent<Animator>();
-}
+    }
 
     void Update()
     {
-        //if (Input.GetButtonDown("Fire1")) // left click
-        //{
-        //    Shoot();
-        //}
+        // Uncomment to allow shooting input
+        // if (Input.GetButtonDown("Fire1"))
+        // {
+        //     Shoot();
+        // }
 
-        if (Input.GetKeyDown(KeyCode.R)) // press R to reload
+        if (Input.GetKeyDown(KeyCode.R)) // Press R to reload
         {
             Reload();
         }
@@ -61,14 +64,15 @@ public class Revolver : MonoBehaviour
             return;
         }
 
-        int needed = maxAmmo - currentAmmo;          // bullets required to fill cylinder
-        int bulletsToLoad = Mathf.Min(needed, reserveAmmo); // load only what's available
+        int needed = maxAmmo - currentAmmo;                   // Bullets required to fill cylinder
+        int bulletsToLoad = Mathf.Min(needed, reserveAmmo);    // Load only what's available
 
         pistolAnimator.Play("ReloadRevolver_1");
+
         currentAmmo += bulletsToLoad;
         reserveAmmo -= bulletsToLoad;
 
-        Debug.Log("Reloaded! Chamber: " + currentAmmo + " / " + maxAmmo + " | Reserve: " + reserveAmmo);
+        Debug.Log($"Reloaded! Chamber: {currentAmmo} / {maxAmmo} | Reserve: {reserveAmmo}");
         UpdateAmmoUI();
     }
 
@@ -76,7 +80,7 @@ public class Revolver : MonoBehaviour
     {
         if (ammoText != null)
         {
-            ammoText.text = currentAmmo + " / " + reserveAmmo;
+            ammoText.text = $"{currentAmmo} / {reserveAmmo}";
         }
     }
 
@@ -86,6 +90,5 @@ public class Revolver : MonoBehaviour
         Debug.Log("Picked up ammo crate! Reserve now: " + reserveAmmo);
         UpdateAmmoUI();
     }
-
-
 }
+

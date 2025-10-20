@@ -1117,6 +1117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 50
   gravity: -9.81
+  jumpHeight: 2
   lookSensitivity: 2
   maxLookX: 80
   minLookX: -80
@@ -1259,9 +1260,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f18cc32bed51864ab271a6a34e807c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxAmmo: 30
+  maxAmmo: 6
   currentAmmo: 6
-  reserveAmmo: 100
+  reserveAmmo: 6
   player: {fileID: 552092135}
   ammoText: {fileID: 1308486197}
 --- !u!114 &392361238
@@ -7798,14 +7799,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 695171537541744534, guid: 3f98d3e1677f3c34a89590e1af6b834f, type: 3}
-      propertyPath: m_Volume
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 695171537541744534, guid: 3f98d3e1677f3c34a89590e1af6b834f, type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: 2388183468149217135, guid: 4d9fc7bdc0919d8489b9b5b895ec5eba, type: 2}
     - target: {fileID: 2186586474052152134, guid: 3f98d3e1677f3c34a89590e1af6b834f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 143
@@ -7862,6 +7855,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCowboy
       objectReference: {fileID: 0}
+    - target: {fileID: 5612598565559593085, guid: 3f98d3e1677f3c34a89590e1af6b834f, type: 3}
+      propertyPath: m_Radius
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612598565559593085, guid: 3f98d3e1677f3c34a89590e1af6b834f, type: 3}
+      propertyPath: m_Center.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612598565559593085, guid: 3f98d3e1677f3c34a89590e1af6b834f, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7885,7 +7890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammoAmount: 12
-  revolver: {fileID: 2146603829}
+  revolver: {fileID: 392361237}
   uiPrompt: {fileID: 225133351}
 --- !u!1 &1555226812
 GameObject:
