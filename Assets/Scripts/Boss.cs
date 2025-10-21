@@ -129,14 +129,40 @@ public class Boss : MonoBehaviour
     // This method should be called via an Animation Event
     public void ThrowDynamite()
     {
-        if (dynamitePrefab == null || throwPoint == null || player == null) return;
+        //if (dynamitePrefab == null || throwPoint == null || player == null) return;
 
-        GameObject dynamite = Instantiate(dynamitePrefab, throwPoint.position, Quaternion.identity);
-        Rigidbody rb = dynamite.GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            Vector3 direction = (player.position - throwPoint.position).normalized;
-            rb.AddForce(direction * throwForce, ForceMode.VelocityChange);
-        }
+        //GameObject dynamite = Instantiate(dynamitePrefab, throwPoint.position, Quaternion.identity);
+        //Rigidbody rb = dynamite.GetComponent<Rigidbody>();
+        //if (rb != null)
+        //{
+        //    Vector3 direction = (player.position - throwPoint.position).normalized;
+        //    rb.AddForce(direction * throwForce, ForceMode.VelocityChange);
+        //}
+
+        if (dynamitePrefab == null || player == null) return;
+
+        // Start a little above the player
+        Vector3 spawnPos = player.position + player.forward * 1.5f;
+        spawnPos.y = player.position.y; // lock to player’s ground height
+        Instantiate(dynamitePrefab, spawnPos, Quaternion.identity);
+
+
+
     }
+
+    public void SpawnDynamite()
+    {
+        if (dynamitePrefab == null || player == null) return;
+
+        // Spawn position: a little in front of the player’s current position
+        Vector3 spawnOffset = player.forward * 1.5f + Vector3.up * 0.5f;
+        Vector3 spawnPos = player.position + spawnOffset;
+
+        // Spawn the dynamite prefab facing the same direction as the player
+        Instantiate(dynamitePrefab, spawnPos, Quaternion.LookRotation(player.forward));
+
+        Debug.Log("Dynamite spawned in front of the player!");
+    }
+
+
 }
