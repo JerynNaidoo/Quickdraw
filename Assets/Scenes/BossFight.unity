@@ -198,7 +198,7 @@ MonoBehaviour:
   despawnTime: 2
   endCinematic: {fileID: 1799924517}
   damageCooldown: 1
-  dynamitePrefab: {fileID: 3377609421431512407, guid: 023af48eb88fdc94abd2accff18d2b66, type: 3}
+  dynamitePrefab: {fileID: 6444127217622158308, guid: b8f2be972757bf94885b93006c61e8c7, type: 3}
   throwPoint: {fileID: 1267949466}
   throwForce: 12
   throwCooldown: 15
