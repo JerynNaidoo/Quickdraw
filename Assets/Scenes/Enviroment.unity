@@ -187,7 +187,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectsToSpawn:
   - {fileID: 8387625055893005542, guid: 0f753b4ef51c3554fb2a73a55444f335, type: 3}
-  - {fileID: 7151485898532406886, guid: d925c4ac66342564898fe693dbfceb73, type: 3}
   - {fileID: 8478268528780263483, guid: 9aba93d7c341ac74cbc65af3aed1f418, type: 3}
   - {fileID: 8792214223360508853, guid: 07e03302785c9f04e87dfbea47d9af3a, type: 3}
   - {fileID: 7882759087938551827, guid: 1dabafb28a2637e4ebe7b93c89ee6b55, type: 3}
