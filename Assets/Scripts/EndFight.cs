@@ -53,6 +53,7 @@ public class EndFight : MonoBehaviour
 
     public IEnumerator PlayFinalSequence()
     {
+        
 
         if (messageText != null)
             messageText.text = "";
@@ -94,7 +95,9 @@ public class EndFight : MonoBehaviour
         if (blackPanelObject != null)
             blackPanelObject.SetActive(false);
 
-        
+        SceneManager.LoadSceneAsync("BossFight", LoadSceneMode.Additive);
+
+
     }
 
     private IEnumerator FadeImageAlpha(Image img, float from, float to, float duration)

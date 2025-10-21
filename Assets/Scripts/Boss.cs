@@ -1,9 +1,11 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using TMPro;
 
 public class Boss : MonoBehaviour
 {
+    public TextMeshProUGUI messageText;
     [Header("Health Settings")]
     [SerializeField] private float maxHealth = 100f;
     private float currentHealth;
@@ -11,31 +13,43 @@ public class Boss : MonoBehaviour
     [Header("Death Settings")]
     [SerializeField] private float despawnTime = 2f;
     private bool isDead = false;
-
     public EndGameCinematic endCinematic;
 
     private Transform player;
     private NavMeshAgent agent;
     private Animator animator;
+    private Collider BossCollider;
 
+    [Header("Attack Settings")]
     [SerializeField] private float damageCooldown = 1.0f;
     private float lastDamageTime = 0;
 
-    private Collider BossCollider;
+    [Header("Throwing Settings")]
+    [SerializeField] private GameObject dynamitePrefab;
+    [SerializeField] private Transform throwPoint;
+    [SerializeField] private float throwForce = 10f;
+    [SerializeField] private float throwCooldown = 5f;
+    private float lastThrowTime = 0f;
+    private float messageTimer = 0f;
+    private bool messageActive = false;
+
+
+
 
     private void Awake()
     {
+        
+
         currentHealth = maxHealth;
         if (player == null)
             player = GameObject.Find("Player")?.transform;
+
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponentInChildren<Animator>();
         BossCollider = GetComponent<Collider>();
+        animator.SetBool("isRunning", true);
     }
 
-    /// <summary>
-    /// Call this to apply damage to the enemy.
-    /// </summary>
     public void TakeDamage(float amount)
     {
         if (isDead) return;
@@ -49,45 +63,45 @@ public class Boss : MonoBehaviour
         }
     }
 
-
     private void Update()
     {
+        // Find player if missing
         if (player == null)
         {
             player = GameObject.FindWithTag("Player")?.transform;
-            if (player == null)
-                return; // still not found, skip movement this frame
+            if (player == null) return;
         }
 
+        // Move toward player
         if (!isDead && agent != null && agent.isOnNavMesh)
             agent.SetDestination(player.position);
+
+        // Animator speed (optional)
+        //if (agent != null && animator != null)
+        //{
+        //    float currentSpeed = agent.velocity.magnitude;
+        //    animator.SetFloat("speed", currentSpeed);
+        //}
+
+        // Trigger throw if cooldown passed and player is far enough
+        if (!isDead && Time.time - lastThrowTime > throwCooldown && Vector3.Distance(transform.position, player.position) > 5f)
+        {
+            TriggerThrow();
+            lastThrowTime = Time.time;
+        }
+
+        // Handle message timer
+        if (messageActive)
+        {
+            messageTimer -= Time.deltaTime;
+            if (messageTimer <= 0f)
+            {
+                if (messageText != null)
+                    messageText.text = "";
+                messageActive = false;
+            }
+        }
     }
-
-    //private void ChasePlayer()
-    //{
-    //    if (player == null)
-    //    {
-    //        Debug.LogWarning("No player found!");
-    //        return;
-    //    }
-
-    //    if (agent == null)
-    //    {
-    //        Debug.LogWarning("No NavMeshAgent found!");
-    //        return;
-    //    }
-
-    //    if (!agent.isOnNavMesh)
-    //    {
-    //        Debug.LogWarning("Boss is not on NavMesh!");
-    //        return;
-    //    }
-    //    if (player != null && agent != null && agent.enabled && agent.isOnNavMesh)
-    //    {
-    //        agent.SetDestination(player.position);
-    //    }
-    //}
-
 
     private void Die()
     {
@@ -99,9 +113,7 @@ public class Boss : MonoBehaviour
             endCinematic.StartCinematic();
         }
 
-
         Destroy(gameObject, despawnTime);
-
     }
 
     private void OnTriggerEnter(Collider other)
@@ -110,17 +122,12 @@ public class Boss : MonoBehaviour
 
         if (other.CompareTag("Player") && Time.time - lastDamageTime > damageCooldown)
         {
-            // Damage the player (replace this with your own health system)
-            Debug.Log("Boss collided with Player � applying damage.");
-
+            Debug.Log("Boss collided with Player — applying damage.");
             HealthBarManager health = Object.FindFirstObjectByType<HealthBarManager>();
             if (health != null)
                 health.RemoveOne();
 
             lastDamageTime = Time.time;
-
-            Debug.Log("Setting canAttack to true");
-
             animator.SetBool("canAttack", true);
             StartCoroutine(ResetAttackAfterDelay(2f));
         }
@@ -128,9 +135,71 @@ public class Boss : MonoBehaviour
 
     private IEnumerator ResetAttackAfterDelay(float delay)
     {
-        //Debug.Log("Coroutine started: will reset attack in " + delay + " seconds");
         yield return new WaitForSeconds(delay);
         animator.SetBool("canAttack", false);
-        //Debug.Log("canAttack reset to false");
     }
+
+    public void TriggerThrow()
+    {
+        if (isDead || animator == null) return;
+
+        Debug.Log("Triggering Throw animation");
+
+        if (messageText != null)
+        {
+            messageText.text = "Dynamite Incoming";
+            messageTimer = 2f;    // show for 1 second
+            messageActive = true; // start countdown
+        }
+
+        animator.SetTrigger("Throw");
+    }
+
+
+
+
+
+
+
+    // This method should be called via an Animation Event
+    public void ThrowDynamite()
+    {
+        //if (dynamitePrefab == null || throwPoint == null || player == null) return;
+
+        //GameObject dynamite = Instantiate(dynamitePrefab, throwPoint.position, Quaternion.identity);
+        //Rigidbody rb = dynamite.GetComponent<Rigidbody>();
+        //if (rb != null)
+        //{
+        //    Vector3 direction = (player.position - throwPoint.position).normalized;
+        //    rb.AddForce(direction * throwForce, ForceMode.VelocityChange);
+        //}
+
+        if (dynamitePrefab == null || player == null) return;
+
+        // Start a little above the player
+        Vector3 spawnPos = player.position + player.forward * 1.5f;
+        spawnPos.y = player.position.y; // lock to player’s ground height
+        Instantiate(dynamitePrefab, spawnPos, Quaternion.identity);
+
+
+
+    }
+
+    public void SpawnDynamite()
+    {
+
+        if (dynamitePrefab == null || player == null) return;
+
+        // Spawn position: a little in front of the player’s current position
+        Vector3 spawnOffset = player.forward * 1.5f + Vector3.up * 0.5f;
+        Vector3 spawnPos = player.position + spawnOffset;
+
+        // Spawn the dynamite prefab facing the same direction as the player
+        Instantiate(dynamitePrefab, spawnPos, Quaternion.LookRotation(player.forward));
+
+
+        Debug.Log("Dynamite spawned in front of the player!");
+    }
+
+
 }

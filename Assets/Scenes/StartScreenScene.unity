@@ -1005,7 +1005,6 @@ MonoBehaviour:
   scenesToLoad:
   - Gameplay
   - MasterScene
-  - BossFight
   - Environment
   - PlayerHUD
   - PauseMenuScene

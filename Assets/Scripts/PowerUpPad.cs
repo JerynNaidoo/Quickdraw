@@ -20,7 +20,7 @@ public class PowerUpPad : MonoBehaviour
     public Vector3 orbOffset = new Vector3(0, 2.0f, 0);
 
     [Header("Cooldown Settings")]
-    public float cooldown = 5f;
+    public float cooldown = 15f;
     private bool isAvailable = false;
 
     [Header("Orb Colors")]

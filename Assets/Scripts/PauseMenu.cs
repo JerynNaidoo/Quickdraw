@@ -63,7 +63,7 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("PlayerHUD", LoadSceneMode.Additive);
         SceneManager.LoadScene("PauseMenuScene", LoadSceneMode.Additive);
         SceneManager.LoadScene("Enviroment", LoadSceneMode.Additive);
-        SceneManager.LoadScene("BossFight", LoadSceneMode.Additive);
+        //SceneManager.LoadScene("BossFight", LoadSceneMode.Additive);
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1f; // Ensure time scale is reset
     }

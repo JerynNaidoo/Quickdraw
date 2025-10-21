@@ -16,8 +16,8 @@ public class EnemySpawner : MonoBehaviour
     public float spawnInterval = 1.5f;   // Time between spawns
 
     [Header("Wave Settings")]
-    public int totalWaves = 3;           // Total waves
-    public int enemiesInFirstWave = 2;   // Starting enemies per wave
+    public int totalWaves = 10;           // Total waves
+    public int enemiesInFirstWave = 6;   // Starting enemies per wave
     public float waveInterval = 15f;     // Delay between waves
 
     [Header("Final Battle Settings")]

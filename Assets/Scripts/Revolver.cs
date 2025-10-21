@@ -6,7 +6,7 @@ public class Revolver : MonoBehaviour
     [Header("Ammo Settings")]
     public int maxAmmo = 6;          // Revolver cylinder size
     public int currentAmmo;          // Ammo in cylinder
-    public int reserveAmmo = 24;     // Total spare bullets (not including cylinder)
+    public int reserveAmmo = 30;     // Total spare bullets (not including cylinder)
 
     [SerializeField]
     private GameObject player;       // Reference to player (for animator)
